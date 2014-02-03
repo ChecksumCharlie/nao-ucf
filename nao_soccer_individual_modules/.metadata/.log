@@ -2342,3 +2342,6 @@ Caused by: java.lang.IllegalArgumentException: Argument not valid
 	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
 	... 24 more
+
+!ENTRY org.python.pydev.shared_core 4 4 2014-02-03 11:17:17.165
+!MESSAGE Info: Rebuilding internal caches: /home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Aiming/com.python.pydev.analysis/AdditionalProjectInterpreterInfo.pydevinfo (Expected error to be provided and got no error!)
