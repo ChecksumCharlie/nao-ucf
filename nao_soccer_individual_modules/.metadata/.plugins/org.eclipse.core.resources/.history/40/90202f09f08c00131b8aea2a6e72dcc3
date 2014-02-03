@@ -19,3 +19,6 @@ if __name__ == '__main__':
     
     motion.setStiffnesses("Body",1.0)
     motion.moveTo(x, y, theta)
+    
+    
+    #ahlkdsfjalkdsjf
