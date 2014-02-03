@@ -2182,3 +2182,55 @@ java.lang.RuntimeException: Unable to track file that does not exist: /home/cssd
 	at org.python.pydev.editor.codecompletion.revisited.SynchSystemModulesManagerScheduler.start(SynchSystemModulesManagerScheduler.java:76)
 	at org.python.pydev.plugin.PydevPlugin$1.run(PydevPlugin.java:208)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2014-02-03 08:56:45.963 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.standard.product
+
+!ENTRY org.python.pydev.shared_core 1 1 2014-02-03 08:58:01.988
+!MESSAGE Unable to track file that does not exist: /home/cssd/Documents/SD/pynaoqi-python-2.7-naoqi-1.14-linux64
+!STACK 0
+java.lang.RuntimeException: Unable to track file that does not exist: /home/cssd/Documents/SD/pynaoqi-python-2.7-naoqi-1.14-linux64
+	at org.python.pydev.shared_core.log.Log.logInfo(Log.java:52)
+	at org.python.pydev.shared_core.path_watch.PathWatch.track(PathWatch.java:258)
+	at org.python.pydev.editor.codecompletion.revisited.SynchSystemModulesManagerScheduler.afterSetInfos(SynchSystemModulesManagerScheduler.java:428)
+	at org.python.pydev.editor.codecompletion.revisited.SynchSystemModulesManagerScheduler.afterSetInfos(SynchSystemModulesManagerScheduler.java:409)
+	at org.python.pydev.editor.codecompletion.revisited.SynchSystemModulesManagerScheduler.registerInterpreterManager(SynchSystemModulesManagerScheduler.java:54)
+	at org.python.pydev.editor.codecompletion.revisited.SynchSystemModulesManagerScheduler.start(SynchSystemModulesManagerScheduler.java:76)
+	at org.python.pydev.plugin.PydevPlugin$1.run(PydevPlugin.java:208)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.jface 2 0 2014-02-03 08:58:48.264
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-02-03 08:58:48.264
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@a83aa68,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(com.python.pydev.analysis.actions.pyGlobalsBrowserWorkbench,Python Show Global Tokens (Global),
+		Python Show Global Tokens (Global),
+		Category(org.python.pydev.ui.category.source,PyDev - Editor,PyDev editor category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a28973c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.python.pydev.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.python.pydev.editor.actions.pyShowBrowser,Python Show Global Tokens (Editor),
+		Python Show Global Tokens (Editor),
+		Category(org.python.pydev.ui.category.source,PyDev - Editor,PyDev editor category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2ee10a2d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.python.pydev.ui.editor.scope,,,system)
+
+!ENTRY org.python.pydev.shared_core 4 4 2014-02-03 09:01:49.200
+!MESSAGE Info: Rebuilding internal caches: /home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Track/com.python.pydev.analysis/AdditionalProjectInterpreterInfo.pydevinfo (Expected error to be provided and got no error!)
