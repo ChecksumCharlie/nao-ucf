@@ -1,0 +1,8 @@
+INSTUPxSidestepSample
+/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/xSidestepSample.py
+INFOS:&&2|1|2|0&&2|3|2|0&&3|4|2|0&&3|5|2|0&&3|4|2|0&&3|5|2|0
+nao_ip=4
+xSidestepSample=2
+nao_port=5
+main=3
+StiffnessOn=1

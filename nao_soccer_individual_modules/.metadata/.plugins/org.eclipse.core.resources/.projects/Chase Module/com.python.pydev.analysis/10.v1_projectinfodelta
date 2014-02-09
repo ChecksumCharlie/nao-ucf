@@ -1,7 +1,1 @@
-INSTUPnavigateAround
-/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/navigateAround.py
-INFOS:&&3|1|2|0&&3|3|2|0&&2|4|2|0
-PORT=3
-navigateAround=2
-IP=1
-StiffnessOn=4
+DELSTRnavigateAround

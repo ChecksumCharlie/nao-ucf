@@ -1,0 +1,7 @@
+INSTUPSidesteppingGoalie
+/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/SidesteppingGoalie.py
+INFOS:&&2|1|2|0&&3|3|2|0&&3|4|2|0&&3|3|2|0&&3|4|2|0
+nao_ip=3
+SidesteppingGoalie=2
+nao_port=4
+main=1
