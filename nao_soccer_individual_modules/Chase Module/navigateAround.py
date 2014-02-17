@@ -23,7 +23,9 @@ def main():
     StiffnessOn(motionProxy)
     
     redBallTracker.startTracker()
-    time.sleep(1)
+    while (not redBallTracker.isNewData()):
+        print "aquiring tracker"
+        time.sleep(.1)
     
     #Track Ball and move to it
     if redBallTracker.isActive():
@@ -31,13 +33,13 @@ def main():
         print "within if-else"
         print crdArry[0]
         print crdArry[1]
+        
         while crdArry[0] >= 0.3:
             print "Still active:TRACKING SUCCESFUL"
-            motionProxy.setWalkTargetVelocity(0.75, 0.0, 0.0, 1.0)
-            time.sleep(.01)
             crdArry = redBallTracker.getPosition()
             print crdArry[0]
             print crdArry[1]
+            motionProxy.setWalkTargetVelocity(1.0, 0.0, 0.0, 1.0)
     else:
         print "Failed Detection"
         
@@ -45,29 +47,40 @@ def main():
     
     motionProxy.setWalkTargetVelocity(0.0, 0.0, 0.0, 0.0)
     
-    theta = 0.0 
-    while theta <= 35: 
-        crdArry = redBallTracker.getPosition()
-        print (crdArry[0])
-        print (crdArry[1])
-        theta = math.degrees(math.atan(math.fabs(crdArry[1])/math.fabs(crdArry[0])))
-        time.sleep(.01)
-        print "X theta: ", theta
-        motionProxy.setWalkTargetVelocity(0.0, 1.0, 0.0, 1.0)
-        
+    motionProxy.moveTo(.7, 0.0, -2.0)
+    time.sleep(.1)
+    
+    motionProxy.setWalkTargetVelocity(.8, 0.0, 0.0, 1.0)
+    time.sleep(4)
+    
     motionProxy.setWalkTargetVelocity(0.0, 0.0, 0.0, 0.0)
     
-    while theta <=45:
-        crdArry = redBallTracker.getPosition()
-        print (crdArry[0])
-        print (crdArry[1])
-        theta = math.degrees(math.atan(math.fabs(crdArry[1])/math.fabs(crdArry[0])))
-        time.sleep(.01)
-        print "theta: ", theta
-        motionProxy.setWalkTargetVelocity(1.0, 0.0, 0.0, 1.0)
-    
-    time.sleep(1)
-       
+#     theta = 0.0 
+#     while theta <= 35: 
+#        crdArry = redBallTracker.getPosition()
+#        print (crdArry[0])
+#        print (crdArry[1])
+#        theta = math.degrees(math.atan(math.fabs(crdArry[1])/math.fabs(crdArry[0])))
+#        time.sleep(.01)
+#        print "X theta: ", theta
+#        motionProxy.setWalkTargetVelocity(0.0, 1.0, 0.0, 1.0)
+#        
+#    motionProxy.setWalkTargetVelocity(0.0, 0.0, 0.0, 0.0)
+#    
+#    while theta <=45:
+#         crdArry = redBallTracker.getPosition()
+#         print (crdArry[0])
+#         print (crdArry[1])
+#         theta = math.degrees(math.atan(math.fabs(crdArry[1])/math.fabs(crdArry[0])))
+#         time.sleep(.01)
+#         print "theta: ", theta
+#         motionProxy.setWalkTargetVelocity(1.0, 0.0, 0.0, 1.0)
+#     
+#     motionProxy.setWalkTargetVelocity(0.0, 0.0, 0.0, 0.0)
+#     
+#     time.sleep(1)
+#        
+#     motionProxy.move(1.0,-1.0,0.0,1.0)
 
 if __name__ == "__main__":
     robotIp = "127.0.0.1"
