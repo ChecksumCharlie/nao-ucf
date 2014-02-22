@@ -4,6 +4,7 @@
 
 import sys
 import time
+import math
 
 from naoqi import ALProxy
 
@@ -81,23 +82,24 @@ def main(nao_ip, nao_port):
         # Get head position sensor value
         key = "Device/SubDeviceList/HeadYaw/Position/Sensor/Value"
         value = memoryProxy.getData(key)
-        #print value
+        print value
         # Check if move to left
         if value>=0.01:
             print "heading left"
-            motionProxy.setWalkTargetVelocity(1.0,0.0,0.3,1.0,
+            #motionProxy.stopMove()
+            motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,
                 [#Left
                 maxStepXRight,
-                maxStepYRight,
-                maxStepThetaRight,
+                #maxStepYRight,
+                ["MaxStepTheta", 0.349],
                 maxStepFrequencyRight,
                 stepHeightRight,
                 torsoWxRight,
                 torsoWyRight],
                 [#Right
                 maxStepXLeft,
-                maxStepYLeft,
-                maxStepThetaLeft,
+                #maxStepYLeft,
+                ["MaxStepTheta", 0.349],
                 maxStepFrequencyLeft,
                 stepHeightLeft,
                 torsoWxLeft,
@@ -105,19 +107,20 @@ def main(nao_ip, nao_port):
         # Check if move to right
         elif value<=-0.01:
             print "heading right"
-            motionProxy.setWalkTargetVelocity(1.0,0.0,-0.3,1.0,
+            #motionProxy.stopMove()
+            motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,
                 [#Left
                 maxStepXRight,
-                maxStepYRight,
-                maxStepThetaRight,
+                #maxStepYRight,
+                ["MaxStepTheta", 0.349],
                 maxStepFrequencyRight,
                 stepHeightRight,
                 torsoWxRight,
                 torsoWyRight],
                 [#Right
                 maxStepXLeft,
-                maxStepYLeft,
-                maxStepThetaLeft,
+                #maxStepYLeft,
+                ["MaxStepTheta", 0.349],
                 maxStepFrequencyLeft,
                 stepHeightLeft,
                 torsoWxLeft,
@@ -128,16 +131,16 @@ def main(nao_ip, nao_port):
             motionProxy.setWalkTargetVelocity(1.0,0.0,0.0,1.0,
                 [#Left
                 maxStepXRight,
-                maxStepYRight,
-                maxStepThetaRight,
+                #maxStepYRight,
+                #["MaxStepTheta", 0.0],
                 maxStepFrequencyRight,
                 stepHeightRight,
                 torsoWxRight,
                 torsoWyRight],
                 [#Right
                 maxStepXLeft,
-                maxStepYLeft,
-                maxStepThetaLeft,
+                #maxStepYLeft,
+                #["MaxStepTheta", 0.0],
                 maxStepFrequencyLeft,
                 stepHeightLeft,
                 torsoWxLeft,
@@ -145,8 +148,8 @@ def main(nao_ip, nao_port):
         
         time.sleep(.5)
         crdArry = redBallTracker.getPosition()
-        if (crdArry[0]>=.3 and crdArry[0]!=0):
-            print crdArry[0]
+        if (math.sqrt(math.pow(crdArry[0], 2) +math.pow(crdArry[1],2))<=0.3 and crdArry[0]!=0):
+            print "distance from Ball: ",math.sqrt(math.pow(crdArry[0], 2) +math.pow(crdArry[1],2))
             break
     
     motionProxy.setWalkTargetVelocity(0.0,0.0,0.0,0.0)
