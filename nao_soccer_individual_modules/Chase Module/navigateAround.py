@@ -2,11 +2,12 @@ from naoqi import ALProxy
 import time
 import sys
 import math
+import almath
 
 def StiffnessOn(proxy):
     pNames = "Body"
     pStiffnessLists = 1.0
-    pTimeLists = 1.0
+    pTimeLists = 0.1 
     proxy.stiffnessInterpolation(pNames, pStiffnessLists, pTimeLists)
     
 def main():
@@ -21,6 +22,8 @@ def main():
     redBallTracker = ALProxy("ALRedBallTracker", robotIP, Port)
     
     StiffnessOn(motionProxy)
+    
+    motionProxy.setWalkArmsEnabled(True, True)
     
     redBallTracker.startTracker()
     while (not redBallTracker.isNewData()):
@@ -39,7 +42,19 @@ def main():
             crdArry = redBallTracker.getPosition()
             print crdArry[0]
             print crdArry[1]
-            motionProxy.setWalkTargetVelocity(1.0, 0.0, 0.0, 1.0)
+            motionProxy.setWalkTargetVelocity(1.0,0.0,0.0,1.0,
+                [ # LEFT FOOT
+                ["MaxStepX", 0.065],
+                ["StepHeight", 0.01],
+                ["TorsoWx", 0.0],
+                ["TorsoWy", 0.0], 
+                ["MaxStepTheta", .001]],
+                [ # RIGHT FOOT
+                ["StepHeight", 0.01],
+                ["MaxStepX", 0.065],
+                ["TorsoWx", 0.0], 
+                ["TorsoWy", 0.0],
+                ["MaxStepTheta", .001]] )
     else:
         print "Failed Detection"
         
