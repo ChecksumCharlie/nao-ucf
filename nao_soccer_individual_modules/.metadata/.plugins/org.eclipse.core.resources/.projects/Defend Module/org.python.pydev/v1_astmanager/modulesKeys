@@ -1,13 +1,13 @@
 MODULES_MANAGER_V2
-SidesteppingGoalie|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/SidesteppingGoalie.py
-_allog|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/_allog.so
-_almath|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/_almath.so
-_inaoqi|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/_inaoqi.so
-allog|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
-almath|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
-inaoqi|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
-motion|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
-naoqi|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
-vision_definitions|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
-xDefendSample|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/xDefendSample.py
-xSidestepSample|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/xSidestepSample.py
+SidesteppingGoalie|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/SidesteppingGoalie.py
+_allog|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/_allog.so
+_almath|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/_almath.so
+_inaoqi|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/_inaoqi.so
+allog|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
+almath|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
+inaoqi|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
+motion|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
+naoqi|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
+vision_definitions|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
+xDefendSample|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/xDefendSample.py
+xSidestepSample|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Defend Module/xSidestepSample.py
