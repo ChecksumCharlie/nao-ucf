@@ -3,7 +3,7 @@
 
 # import sys
 import time
-from naoqi import ALProxy
+import ALProxy
 
 IP = "127.0.0.1"
 PORT = 9560
