@@ -1,6 +1,10 @@
-#OS junk files
-[Tt]humbs.db
+## generic files to ignore
+*~
+*.lock
 *.DS_Store
+[Tt]humbs.db
+*.swp
+*.out
 
 #Visual Studio files
 *.[Oo]bj
@@ -90,3 +94,8 @@ local.properties
 .cproject
 # PDT-specific
 .buildpath
+
+######################
+# Python
+######################
+*.pyc
