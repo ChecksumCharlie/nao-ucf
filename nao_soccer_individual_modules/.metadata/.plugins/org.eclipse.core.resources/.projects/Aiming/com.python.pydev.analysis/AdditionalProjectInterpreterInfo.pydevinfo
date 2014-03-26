@@ -1,13 +1,13 @@
 -- VERSION_4
 -- START DISKCACHE
-/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Aiming/com.python.pydev.analysis/v2_indexcache
-naoqi|1342884798000|/home/mainuser/Documents/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
-allog|1352471954000|/home/mainuser/Documents/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
-Aiming|1393127355000|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Aiming/Aiming.py
-inaoqi|1352471956000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
-almath|1352471546000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
-vision_definitions|1338302150000|/home/mainuser/Documents/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
-motion|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
+/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Aiming/com.python.pydev.analysis/v2_indexcache
+naoqi|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
+allog|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
+Aiming|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Aiming/Aiming.py
+inaoqi|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
+almath|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
+vision_definitions|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
+motion|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
 -- END DISKCACHE
 -- START DICTIONARY
 48
@@ -61,7 +61,7 @@ motion|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/
 24=PositionAndVelocity
 -- END DICTIONARY
 -- START TREE 1
-119
+113
 PI|1|PI!11@
 _2_|1|_2_PI_!11@
 _4_|1|_4_PI_!11@
@@ -86,7 +86,6 @@ aut|2|autoBind!18@autoBind!34@
 avo|1|avoidFootCollision!10@
 axi|23|AXIS_MASK_Z!43@AXIS_MASK_Z!11@AXIS_MASK_WX!11@AXIS_MASK_VEL!11@AXIS_MASK_ROT!43@AXIS_MASK_WY!43@AXIS_MASK_Y!11@AXIS_MASK_WY!11@AXIS_MASK_WYWZ!11@AXIS_MASK_VEL!43@AXIS_MASK_WZ!43@AXIS_MASK_X!11@AXIS_MASK_X!43@AXIS_MASK_WZ!11@AXIS_MASK_ALL!43@AXIS_MASK_XY!11@AXIS_MASK_Y!43@axisRotationProjection!10@axisRotationProjectionInPlace!10@AXIS_MASK_ROT!11@AXIS_MASK_WX!43@AXIS_MASK_ALL!11@AXIS_MASK_NONE!11@
 bac|1|back!18@
-bal|1|ball!51@
 bas|2|baseModule!17@baseModule_swigregister!19@
 beh|2|behavior_swigregister!19@behavior!17@
 bin|1|BIND_PYTHON!18@
@@ -101,7 +100,7 @@ cva|1|cvar!11@
 deb|2|debug!27@debug!26@
 dec|1|declareEvent!18@
 det|1|determinant!10@
-dis|2|distance!10@distanceSquared!10@
+dis|3|distance!10@distance!50@distanceSquared!10@
 dot|1|dotProduct!10@
 err|2|error!26@error!27@
 exi|1|exit!18@
@@ -109,7 +108,7 @@ fat|2|fatal!26@fatal!27@
 fra|3|FRAME_WORLD!43@FRAME_ROBOT!43@FRAME_TORSO!43@
 fro|1|front!18@
 fun|1|functionName!18@
-get|31|getParameter!18@getMemoryProxy!18@getUsage!18@getTimestamp!18@getParametersList!18@getDescriptionList!18@getMicroEventList!18@getName!18@getType!18@getBrokerName!18@getDataOnChange!18@getExtractorEvent!18@getModuleHelp!18@getDataListName!18@getParentTimeline!18@getMemoryProxy!19@getDataPtr!18@getData!18@getGlobalModuleList!18@getEventHistory!18@getFPS!18@getEventList!18@getGenericProxy!18@getDataList!18@getListData!18@getSubscribers!18@getSize!18@getDubinsSolutions!10@getTimeline!18@getMethodHelp!18@getMethodList!18@
+get|33|getParameter!18@getMemoryProxy!18@get_slope!50@getUsage!18@getTimestamp!18@getParametersList!18@getDescriptionList!18@getMicroEventList!18@getName!18@getType!18@getBrokerName!18@getDataOnChange!18@getExtractorEvent!18@getModuleHelp!18@getDataListName!18@getMemoryProxy!19@getParentTimeline!18@getDataPtr!18@getData!18@getGlobalModuleList!18@getEventHistory!18@getFPS!18@getEventList!18@getGenericProxy!18@getDataList!18@getListData!18@getSubscribers!18@getSize!18@get_target_loc!50@getDubinsSolutions!10@getTimeline!18@getMethodHelp!18@getMethodList!18@
 got|1|goTo!18@
 has|2|hasParentTimeline!18@hasTimeline!18@
 inf|2|info!27@info!26@
@@ -137,7 +136,6 @@ kyu|6|kYUVColorSpace!59@kYuvColorSpace!59@kYUV422ColorSpace!59@kYUV422Interlaced
 kyy|1|kYYCbCrColorSpace!59@
 met|1|MethodMissingMixin!33@
 mod|2|module!17@module_swigregister!19@
-mot|1|motion!51@
 mvt|2|MVT_ABSOLUTE!43@MVT_RELATIVE!43@
 nao|1|NaoQiModule!33@
 nor|2|normalize!10@norm!10@
@@ -147,6 +145,7 @@ pi_|2|PI_2!11@PI_4!11@
 pin|2|pinv!10@ping!18@
 pla|1|play!18@
 pos|21|Pose2D_swigregister!11@Position2D!9@position6DFromTransformDiffInPlace!10@Position3D!9@PositionAndVelocity!9@position3DFromTransformInPlace!10@Position3D_swigregister!11@pose2DInverse!10@postType!33@position6DFromTransformDiff!10@pose2DFromTransform!10@position6DFromTransformInPlace!10@pose2DFromTransformInPlace!10@Position2D_swigregister!11@Position6D!9@Pose2D!9@PositionAndVelocity_swigregister!11@position6DFromVelocity6D!10@Position6D_swigregister!11@position3DFromTransform!10@position6DFromTransform!10@
+pri|1|print_coordinates!50@
 pro|2|proxy!17@proxy_swigregister!19@
 pus|1|push_back!18@
 pyt|2|pythonCall!18@pythonPCall!18@
@@ -155,7 +154,6 @@ rai|2|raiseEvent!18@raiseMicroEvent!18@
 rel|1|releaseResource!18@
 rem|2|removeMicroEvent!18@removeData!18@
 res|2|reserve!18@resize!18@
-rob|2|robot_IP!51@robot_ID!51@
 rot|20|rotation3DFromRotation!10@rotation3DFromTransform!10@rotationFromTransformInPlace!10@Rotation_from3DRotation!10@rotationFromRotZ!10@rotationFrom3DRotation!10@rotationFromTransform!10@Rotation3D_swigregister!11@Rotation_fromQuaternion!10@Rotation3D!9@Rotation!9@Rotation_fromRotX!10@Rotation_swigregister!11@Rotation_fromRotY!10@rotationFromRotY!10@rotationFromQuaternion!10@rotationFromAngleDirection!10@Rotation_fromAngleDirection!10@Rotation_fromRotZ!10@rotationFromRotX!10@
 sen|1|SENSORS!43@
 set|8|setInstance!19@setEnabled!18@setModuleDescription!18@setFPS!18@setParameter!18@setInstance!18@setDescription!18@setResources!18@
@@ -166,12 +164,10 @@ sto|1|stop!18@
 str|2|StringVector!17@StringVector_swigregister!19@
 sub|2|subscribeToEvent!18@subscribeToMicroEvent!18@
 swi|7|SwigPyIterator_swigregister!11@swig_import_helper!10@SwigPyIterator!17@swig_import_helper!18@SwigPyIterator_swigregister!19@SwigPyIterator!9@swig_import_helper!26@
-the|1|theta!51@
 thi|1|this!19@
 tim|2|timeline!17@timeline_swigregister!19@
 to_|4|TO_RAD!43@TO_RAD!11@TO_DEG!11@TO_DEG!43@
 tra|38|transformDistance!10@transformFromRotVec!10@transpose!10@transformDiff!10@transformFromPosition3DInPlace!10@Transform_fromPosition!10@transformFrom3DRotation!10@transformFromRotVecInPlace!10@transformFromPose2DInPlace!10@Transform_fromRotZ!10@transformFromPosition6D!10@transformLogarithm!10@transformFromPosition!10@transformToFloatVector!10@TransformAndVelocity6D!9@transformInvertInPlace!10@transformFromQuaternion!10@transformFromRotX!10@Transform_from3DRotation!10@Transform_fromRotX!10@transformFromRotY!10@Transform_fromRotY!10@transformPreMultiply!10@transformFromRotationPosition3D!10@TransformAndVelocity6D_swigregister!11@transformFromRotation3D!10@transformFromRotation!10@Transform!9@transformLogarithmInPlace!10@transformFromRotationInPlace!10@transformFromRotZ!10@transformDistanceSquared!10@transformFromPosition3D!10@Transform_swigregister!11@transformMeanInPlace!10@transformMean!10@transformInverse!10@transformFromPose2D!10@
-tts|1|tts!51@
 unr|1|unregisterModuleReference!18@
 uns|2|unsubscribeToMicroEvent!18@unsubscribeToEvent!18@
 vec|8|vectorPosition6D_swigregister!11@vectorPose2D!9@vectorPosition6D!9@vectorFloat_swigregister!11@vectorPosition2D!9@vectorFloat!9@vectorPose2D_swigregister!11@vectorPosition2D_swigregister!11@
@@ -179,8 +175,6 @@ vel|6|velocityExponential!10@Velocity6D!9@Velocity6D_swigregister!11@Velocity3D!
 ver|1|version!18@
 wai|5|wait!18@waitResources!18@waitResourcesCallback!18@waitFor!18@waitResourceFree!18@
 war|2|warning!26@warning!27@
-x|1|x!51@
-y|1|y!51@
 -- END TREE
 -- START TREE 2
 68

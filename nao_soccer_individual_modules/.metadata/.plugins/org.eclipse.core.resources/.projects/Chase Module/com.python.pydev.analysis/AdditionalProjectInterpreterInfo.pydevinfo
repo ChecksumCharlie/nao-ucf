@@ -1,15 +1,15 @@
 -- VERSION_4
 -- START DISKCACHE
-/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Chase Module/com.python.pydev.analysis/v2_indexcache
-naoqi|1342884798000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
-Chase|1393127355000|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/Chase.py
-allog|1352471954000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
-navigation|1393127355000|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/navigation.py
-navigateAround|1393127355000|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/navigateAround.py
-inaoqi|1352471956000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
-almath|1352471546000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
-vision_definitions|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
-motion|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
+/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Chase Module/com.python.pydev.analysis/v2_indexcache
+naoqi|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
+Chase|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/Chase.py
+allog|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
+navigation|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/navigation.py
+navigateAround|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/navigateAround.py
+inaoqi|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
+almath|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
+vision_definitions|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
+motion|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
 -- END DISKCACHE
 -- START DICTIONARY
 51
@@ -18,7 +18,7 @@ motion|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/
 14=Rotation3D
 33=MethodMissingMixin
 49=NaoQiModule.__init__
-8=navigateAround
+7=navigateAround
 6=motion
 18=Pose2D
 23=StringVector
@@ -36,7 +36,7 @@ motion|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/
 13=Velocity3D
 15=Position6D
 37=timeline
-7=vision_definitions
+8=vision_definitions
 17=Position2D
 5=naoqi
 34=ALMemoryProxy
@@ -97,7 +97,7 @@ beh|2|behavior_swigregister!27@behavior!25@
 bin|1|BIND_PYTHON!26@
 bro|2|broker_swigregister!27@broker!25@
 cap|1|capacity!26@
-cha|10|changeReferenceTransposePosition3DInPlace!18@changeReferenceTransposeTransform!18@changeReferencePosition6D!18@changeReferenceTransform!18@changeReferencePosition3D!18@changeReferenceTransposePosition6D!18@changeReferenceTransposePosition3D!18@changeReferencePosition3DInPlace!18@changeReferenceVelocity6D!18@changeReferenceTransposeVelocity6D!18@
+cha|11|changeReferenceTransposePosition3DInPlace!18@changeReferenceTransposeTransform!18@changeReferencePosition6D!18@chase!58@changeReferenceTransform!18@changeReferencePosition3D!18@changeReferenceTransposePosition6D!18@changeReferenceTransposePosition3D!18@changeReferencePosition3DInPlace!18@changeReferenceVelocity6D!18@changeReferenceTransposeVelocity6D!18@
 cli|2|clipFootWithEllipse!18@clipData!18@
 com|1|COMMANDS!51@
 crd|1|crdArry!11@
@@ -123,25 +123,25 @@ ins|3|insertData!26@insert!26@insertListData!26@
 ise|1|isEnabled!26@
 ism|1|isModulePresent!26@
 isr|2|isResourceFree!26@isRunning!26@
-k4v|1|k4VGA!59@
-k96|1|k960p!59@
-kav|1|kAverageScaleMethod!59@
-kbg|1|kBGRColorSpace!59@
-kca|35|kCameraBacklightCompensationID!59@kCameraSharpnessID!59@kCameraExposureCorrectionID!59@kCameraColorSpaceID!59@kCameraSaturationID!59@kCameraBufferSizeID!59@kCameraLensYID!59@kCameraGainID!59@kCameraAwbGreenGainID!59@kCameraExposureID!59@kCameraBlcBlueID!59@kCameraFastSwitchID!59@kCameraAutoWhiteBalanceID!59@kCameraAblcTargetID!59@kCameraFrameRateID!59@kCameraHueID!59@kCameraContrastID!59@kCameraAblcID!59@kCameraHFlipID!59@kCameraBlcGbID!59@kCameraAutoGainID!59@kCameraResolutionID!59@kCameraRedChromaID!59@kCameraBlcRedID!59@kCameraBlcGrID!59@kCameraBlueChromaID!59@kCameraWhiteBalanceID!59@kCameraAblcStableRangeID!59@kCameraVFlipID!59@kCameraBrightnessID!59@kCameraSelectID!59@kCameraAecAlgorithmID!59@kCameraLensXID!59@kCameraSetDefaultParamsID!59@kCameraAutoExpositionID!59@
-kh2|1|kH2RGBColorSpace!59@
-khs|5|khSvColorSpace!59@kHSVColorSpace!59@kHsvColorSpace!59@khsVColorSpace!59@kHSMixedColorSpace!59@
-kmt|1|kMT9M114!59@
-kno|1|kNoScaling!59@
-kov|1|kOV7670!59@
-kqq|1|kQQVGA!59@
-kqu|1|kQualityScaleMethod!59@
-kqv|1|kQVGA!59@
-krg|4|kRGBColorSpace!59@krgBColorSpace!59@krGbColorSpace!59@kRgbColorSpace!59@
-ksi|1|kSimpleScaleMethod!59@
-kvg|1|kVGA!59@
-kyu|6|kYUVColorSpace!59@kYuvColorSpace!59@kYUV422ColorSpace!59@kYUV422InterlacedColorSpace!59@kyuVColorSpace!59@kyUvColorSpace!59@
-kyy|1|kYYCbCrColorSpace!59@
-mai|1|main!66@
+k4v|1|k4VGA!67@
+k96|1|k960p!67@
+kav|1|kAverageScaleMethod!67@
+kbg|1|kBGRColorSpace!67@
+kca|35|kCameraBacklightCompensationID!67@kCameraSharpnessID!67@kCameraExposureCorrectionID!67@kCameraColorSpaceID!67@kCameraSaturationID!67@kCameraBufferSizeID!67@kCameraLensYID!67@kCameraGainID!67@kCameraAwbGreenGainID!67@kCameraExposureID!67@kCameraBlcBlueID!67@kCameraFastSwitchID!67@kCameraAutoWhiteBalanceID!67@kCameraAblcTargetID!67@kCameraFrameRateID!67@kCameraHueID!67@kCameraContrastID!67@kCameraAblcID!67@kCameraHFlipID!67@kCameraBlcGbID!67@kCameraAutoGainID!67@kCameraResolutionID!67@kCameraRedChromaID!67@kCameraBlcRedID!67@kCameraBlcGrID!67@kCameraBlueChromaID!67@kCameraWhiteBalanceID!67@kCameraAblcStableRangeID!67@kCameraVFlipID!67@kCameraBrightnessID!67@kCameraSelectID!67@kCameraAecAlgorithmID!67@kCameraLensXID!67@kCameraSetDefaultParamsID!67@kCameraAutoExpositionID!67@
+kh2|1|kH2RGBColorSpace!67@
+khs|5|khSvColorSpace!67@kHSVColorSpace!67@kHsvColorSpace!67@khsVColorSpace!67@kHSMixedColorSpace!67@
+kmt|1|kMT9M114!67@
+kno|1|kNoScaling!67@
+kov|1|kOV7670!67@
+kqq|1|kQQVGA!67@
+kqu|1|kQualityScaleMethod!67@
+kqv|1|kQVGA!67@
+krg|4|kRGBColorSpace!67@krgBColorSpace!67@krGbColorSpace!67@kRgbColorSpace!67@
+ksi|1|kSimpleScaleMethod!67@
+kvg|1|kVGA!67@
+kyu|6|kYUVColorSpace!67@kYuvColorSpace!67@kYUV422ColorSpace!67@kYUV422InterlacedColorSpace!67@kyuVColorSpace!67@kyUvColorSpace!67@
+kyy|1|kYYCbCrColorSpace!67@
+mai|1|main!58@
 met|1|MethodMissingMixin!41@
 mod|2|module!25@module_swigregister!27@
 mot|1|motion!11@
@@ -170,7 +170,7 @@ sen|1|SENSORS!51@
 set|8|setInstance!27@setEnabled!26@setModuleDescription!26@setFPS!26@setParameter!26@setInstance!26@setDescription!26@setResources!26@
 shu|1|shutdown!26@
 spa|3|SPACE_WORLD!51@SPACE_TORSO!51@SPACE_NAO!51@
-sti|2|StiffnessOn!66@stimulateIO!26@
+sti|2|StiffnessOn!58@stimulateIO!26@
 sto|1|stop!26@
 str|2|StringVector!25@StringVector_swigregister!27@
 sub|2|subscribeToEvent!26@subscribeToMicroEvent!26@

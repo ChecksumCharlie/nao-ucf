@@ -8,8 +8,7 @@ import math
 
 from naoqi import ALProxy
 
-
-def main(nao_ip, nao_port):
+def chase(self, nao_ip, nao_port, threshold):
     
     # Init proxies.
     try:
@@ -148,7 +147,7 @@ def main(nao_ip, nao_port):
         
         time.sleep(.5)
         crdArry = redBallTracker.getPosition()
-        if (math.sqrt(math.pow(crdArry[0], 2) +math.pow(crdArry[1],2))<=0.3 and crdArry[0]!=0):
+        if (math.sqrt(math.pow(crdArry[0], 2) +math.pow(crdArry[1],2))<=threshold and crdArry[0]!=0):
             print "distance from Ball: ",math.sqrt(math.pow(crdArry[0], 2) +math.pow(crdArry[1],2))
             break
     
@@ -158,17 +157,4 @@ def main(nao_ip, nao_port):
     motionProxy.setStiffnesses("Head", 0.0)
     
         
-if __name__ == "__main__":
-
-    nao_ip = "127.0.0.1"
-    nao_port = 9560
-
-    if len(sys.argv) <= 2:
-        print "Usage THISFILE.py robotIP robotPORT(optional default: 127.0.0.1 9559)"
-    else:
-        nao_ip = sys.argv[1]
-        nao_port = sys.argv[2]
-
-    main(nao_ip, nao_port)
-            
             

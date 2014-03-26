@@ -11,14 +11,19 @@ PORT = 9560
 
 # Connecting motion module to the NAO robot that we can call
 motion = ALProxy("ALMotion", IP, PORT)
-
-# 
 motion.setStiffnesses("Body", 1.0)
+motion.moveInit()
 
 
-# Move robot 3 meters forward with ALMotion proxy module
-motion.post.moveTo(3, 0, 0)
+# Main Loop
+try:  
+        while True:
+            nao_move = motion.post.moveTo(3, 0, 0)
+            motion.wait(nao_move, 0)
             
-# Safe Exit for Webots' sake
-sys.exit(0)
+# Exit Behaviour
+except KeyboardInterrupt:
+        print
+        print "Interrupted by user, shutting down"
+        sys.exit(0)
     

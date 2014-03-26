@@ -1,13 +1,13 @@
 -- VERSION_4
 -- START DISKCACHE
-/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Helper Stuff/com.python.pydev.analysis/v2_indexcache
-naoqi|1342884798000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
-allog|1352471954000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
-inaoqi|1352471956000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
-almath|1352471546000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
-vision_definitions|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
-motion|1338302150000|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
-footrace1|1393127355000|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_modules/Helper Stuff/footrace1.py
+/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/.metadata/.plugins/org.eclipse.core.resources/.projects/Helper Stuff/com.python.pydev.analysis/v2_indexcache
+naoqi|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/naoqi.py
+allog|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/allog.py
+inaoqi|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/inaoqi.py
+almath|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/almath.py
+vision_definitions|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/vision_definitions.py
+motion|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/pynaoqi-python-2.7-naoqi-1.14-linux64/motion.py
+footrace1|0|/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Helper Stuff/footrace1.py
 -- END DISKCACHE
 -- START DICTIONARY
 48
@@ -17,9 +17,9 @@ footrace1|1393127355000|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_m
 34=timeline
 12=Position6D
 1=almath
-6=vision_definitions
+7=vision_definitions
 14=Position2D
-7=footrace1
+6=footrace1
 4=naoqi
 31=ALMemoryProxy
 30=MethodMissingMixin
@@ -61,7 +61,7 @@ footrace1|1393127355000|/home/mainuser/Documents/nao-ucf/nao_soccer_individual_m
 24=PositionAndVelocity
 -- END DICTIONARY
 -- START TREE 1
-113
+112
 PI|1|PI!11@
 _2_|1|_2_PI_!11@
 _4_|1|_4_PI_!11@
@@ -91,7 +91,7 @@ beh|2|behavior_swigregister!19@behavior!17@
 bin|1|BIND_PYTHON!18@
 bro|2|broker_swigregister!19@broker!17@
 cap|1|capacity!18@
-cha|10|changeReferenceTransposePosition3DInPlace!10@changeReferenceTransposeTransform!10@changeReferencePosition6D!10@changeReferenceTransform!10@changeReferencePosition3D!10@changeReferenceTransposePosition6D!10@changeReferenceTransposePosition3D!10@changeReferencePosition3DInPlace!10@changeReferenceVelocity6D!10@changeReferenceTransposeVelocity6D!10@
+cha|11|changeReferenceTransposePosition3DInPlace!10@changeReferenceTransposeTransform!10@changeReferencePosition6D!10@changeReferenceTransform!10@changeReferencePosition3D!10@changeReferenceTransposePosition6D!10@changeReferenceTransposePosition3D!10@chase!50@changeReferencePosition3DInPlace!10@changeReferenceVelocity6D!10@changeReferenceTransposeVelocity6D!10@
 cli|2|clipFootWithEllipse!10@clipData!10@
 com|1|COMMANDS!43@
 cre|1|createModule!34@
@@ -116,25 +116,24 @@ ins|3|insertData!18@insert!18@insertListData!18@
 ise|1|isEnabled!18@
 ism|1|isModulePresent!18@
 isr|2|isResourceFree!18@isRunning!18@
-k4v|1|k4VGA!51@
-k96|1|k960p!51@
-kav|1|kAverageScaleMethod!51@
-kbg|1|kBGRColorSpace!51@
-kca|35|kCameraBacklightCompensationID!51@kCameraSharpnessID!51@kCameraExposureCorrectionID!51@kCameraColorSpaceID!51@kCameraSaturationID!51@kCameraBufferSizeID!51@kCameraLensYID!51@kCameraGainID!51@kCameraAwbGreenGainID!51@kCameraExposureID!51@kCameraBlcBlueID!51@kCameraFastSwitchID!51@kCameraAutoWhiteBalanceID!51@kCameraAblcTargetID!51@kCameraFrameRateID!51@kCameraHueID!51@kCameraContrastID!51@kCameraAblcID!51@kCameraHFlipID!51@kCameraBlcGbID!51@kCameraAutoGainID!51@kCameraResolutionID!51@kCameraRedChromaID!51@kCameraBlcRedID!51@kCameraBlcGrID!51@kCameraBlueChromaID!51@kCameraWhiteBalanceID!51@kCameraAblcStableRangeID!51@kCameraVFlipID!51@kCameraBrightnessID!51@kCameraSelectID!51@kCameraAecAlgorithmID!51@kCameraLensXID!51@kCameraSetDefaultParamsID!51@kCameraAutoExpositionID!51@
-kh2|1|kH2RGBColorSpace!51@
-khs|5|khSvColorSpace!51@kHSVColorSpace!51@kHsvColorSpace!51@khsVColorSpace!51@kHSMixedColorSpace!51@
-kmt|1|kMT9M114!51@
-kno|1|kNoScaling!51@
-kov|1|kOV7670!51@
-kqq|1|kQQVGA!51@
-kqu|1|kQualityScaleMethod!51@
-kqv|1|kQVGA!51@
-krg|4|kRGBColorSpace!51@krgBColorSpace!51@krGbColorSpace!51@kRgbColorSpace!51@
-ksi|1|kSimpleScaleMethod!51@
-kvg|1|kVGA!51@
-kyu|6|kYUVColorSpace!51@kYuvColorSpace!51@kYUV422ColorSpace!51@kYUV422InterlacedColorSpace!51@kyuVColorSpace!51@kyUvColorSpace!51@
-kyy|1|kYYCbCrColorSpace!51@
-mai|1|main!58@
+k4v|1|k4VGA!59@
+k96|1|k960p!59@
+kav|1|kAverageScaleMethod!59@
+kbg|1|kBGRColorSpace!59@
+kca|35|kCameraBacklightCompensationID!59@kCameraSharpnessID!59@kCameraExposureCorrectionID!59@kCameraColorSpaceID!59@kCameraSaturationID!59@kCameraBufferSizeID!59@kCameraLensYID!59@kCameraGainID!59@kCameraAwbGreenGainID!59@kCameraExposureID!59@kCameraBlcBlueID!59@kCameraFastSwitchID!59@kCameraAutoWhiteBalanceID!59@kCameraAblcTargetID!59@kCameraFrameRateID!59@kCameraHueID!59@kCameraContrastID!59@kCameraAblcID!59@kCameraHFlipID!59@kCameraBlcGbID!59@kCameraAutoGainID!59@kCameraResolutionID!59@kCameraRedChromaID!59@kCameraBlcRedID!59@kCameraBlcGrID!59@kCameraBlueChromaID!59@kCameraWhiteBalanceID!59@kCameraAblcStableRangeID!59@kCameraVFlipID!59@kCameraBrightnessID!59@kCameraSelectID!59@kCameraAecAlgorithmID!59@kCameraLensXID!59@kCameraSetDefaultParamsID!59@kCameraAutoExpositionID!59@
+kh2|1|kH2RGBColorSpace!59@
+khs|5|khSvColorSpace!59@kHSVColorSpace!59@kHsvColorSpace!59@khsVColorSpace!59@kHSMixedColorSpace!59@
+kmt|1|kMT9M114!59@
+kno|1|kNoScaling!59@
+kov|1|kOV7670!59@
+kqq|1|kQQVGA!59@
+kqu|1|kQualityScaleMethod!59@
+kqv|1|kQVGA!59@
+krg|4|kRGBColorSpace!59@krgBColorSpace!59@krGbColorSpace!59@kRgbColorSpace!59@
+ksi|1|kSimpleScaleMethod!59@
+kvg|1|kVGA!59@
+kyu|6|kYUVColorSpace!59@kYuvColorSpace!59@kYUV422ColorSpace!59@kYUV422InterlacedColorSpace!59@kyuVColorSpace!59@kyUvColorSpace!59@
+kyy|1|kYYCbCrColorSpace!59@
 met|1|MethodMissingMixin!33@
 mod|2|module!17@module_swigregister!19@
 mvt|2|MVT_ABSOLUTE!43@MVT_RELATIVE!43@
