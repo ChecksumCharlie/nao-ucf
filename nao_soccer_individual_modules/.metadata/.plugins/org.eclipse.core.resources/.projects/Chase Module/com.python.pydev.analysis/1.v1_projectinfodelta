@@ -1,8 +1,0 @@
-INSTUPnavigateAround
-/home/cssd/Documents/nao-ucf/nao_soccer_individual_modules/Chase Module/navigateAround.py
-INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&3|5|2|0&&3|5|2|0
-robotIp=5
-navigateAround=2
-chase=4
-main=3
-StiffnessOn=1
