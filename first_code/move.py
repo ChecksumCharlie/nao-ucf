@@ -20,7 +20,7 @@ motion.setStiffnesses("Body", 1.0)
 #   x - Distance along the X axis in meters.
 #   y - Distance along the Y axis in meters.
 #   theta - Rotation around the Z axis in radians [-3.1415 to 3.1415].
-motion.post.moveTo(3, 0, 0)
+motion.moveTo(3, 0, 0)
             
 # Safe Exit for Webots' sake
 sys.exit(0)
