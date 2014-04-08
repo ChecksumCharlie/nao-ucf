@@ -1,0 +1,9 @@
+{
+    "cmd": ["python", "-u", "$file"],
+    "env":
+    {
+        "PYTHONPATH": "/home/mainuser/Documents/pynaoqi-python-2.7-naoqi-1.14-linux64/"
+    }, 
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.python"
+}
