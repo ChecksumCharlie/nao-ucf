@@ -1,0 +1,4 @@
+9560 not displaying ball coords -> not single object cause goal is tracked too -> 235 as saturation, needed 255
+also forgot () on getOrangeBall() call
+
+parallel processing -> get while loop out of logic

@@ -14,8 +14,15 @@ PORT = 9559
 
 RobotNo2 = robot.CreateRobot(IP, PORT)
 
-RobotNo1.walk(1)
-RobotNo2.walk(1)
+# RobotNo1.walk(1)
+# RobotNo2.walk(1)
+
+# RobotNo2.stop()
+# RobotNo1.stop()
+
+print RobotNo1.getOrangeBall()
+print RobotNo2.getOrangeBall()
+
 
 # Safe Exit for Webots' sake
 sys.exit(0)

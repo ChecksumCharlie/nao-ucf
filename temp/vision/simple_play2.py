@@ -1,5 +1,6 @@
 import sys
 import time
+from multiprocessing import Process
 
 import nao_robot as robot
 
@@ -18,15 +19,15 @@ RobotPink = robot.CreateRobot(IP, PORT)
 # RobotNo2.walk(1)
 
 def blue_logic(RobotBlue):
-    while (True):
-        if (RobotBlue.getYellowGoal==None and RobotBlue.getOrangeBall!=None):
-            if (RobotBlue.getOrangeBall[0]<300):
+    # while (True):
+        if (RobotBlue.getYellowGoal()==None and RobotBlue.getOrangeBall()!=None):
+            if (RobotBlue.getOrangeBall()[0]<300):
                 RobotBlue.walk(-0.1)
-            elif (RobotBlue.getOrangeBall[0]>300):
+            elif (RobotBlue.getOrangeBall()[0]>300):
                 RobotBlue.walk(0.1)
             else:
                 RobotBlue.walk(0.0)
-        elif (RobotBlue.getYellowGoal!=None):
+        elif (RobotBlue.getYellowGoal()!=None):
             RobotBlue.walk(0)
             RobotBlue.walk(0)
             RobotBlue.walk(0)
@@ -37,19 +38,40 @@ def blue_logic(RobotBlue):
         
 
 def pink_logic(RobotPink):
-    pass
     # while (True):
-    #     if (RobotPink.getOrangeBall!=None):
-    #         if (RobotPink.getOrangeBall[0]<300):
-    #             RobotPink.walk(0.1)
-    #         elif (RobotPink.getOrangeBall[0]>300):
-    #             RobotPink.walk(-0.1)
-    #         else:
-    #             RobotPink.walk(0.0)
+        # new value
+        OrangeBall = RobotPink.getOrangeBall()
+        # behavior logic
+        if (OrangeBall!=None):
+            if (OrangeBall[0]<300):
+                RobotPink.walk(0.1)
+            elif (OrangeBall[0]>300):
+                RobotPink.walk(-0.1)
+            else:
+                RobotPink.walk(0.0)
+        else:
+            RobotPink.walk(0.5)
+
+def print_hello():
+    print "hello"
+            
+
+while (True):
+    p = Process(target=pink_logic, args=(RobotBlue,))
+    p.start()
+    p.join()
+
+    p = Process(target=pink_logic, args=(RobotPink,))
+    p.start()
+    p.join()
+
+# pool = Pool()
+# # evaluate  asynchronously
+
+# pool.apply_async(blue_logic(RobotBlue)) 
+# pool.apply_async(print_hello())    
 
 
-pink_logic(RobotPink)
-blue_logic(RobotBlue)
 
 # Safe Exit for Webots' sake
 sys.exit(0)

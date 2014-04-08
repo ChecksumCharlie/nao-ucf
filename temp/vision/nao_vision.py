@@ -56,13 +56,15 @@ class RobotEyes:
         self.lower = np.array([110,50,50])
         self.upper = np.array([130,255,255])
 
-        # Orange Ball
-        self.lower = np.array([100,50,50])
-        self.upper = np.array([109,235,255])
+        
 
         # Yellow Goal
         self.lower = np.array([75,50,50])
         self.upper = np.array([99,199,253])
+
+        # Orange Ball
+        self.lower = np.array([100,50,50])
+        self.upper = np.array([109,235,255])
 
         # Threshold the HSV image to get only blue color areas
         self.img = cv2.inRange(self.img, self.lower, self.upper)
@@ -100,6 +102,10 @@ class RobotEyes:
         ret,thresh = cv2.threshold(img,127,255,0)
         contours,hierarchy = cv2.findContours(thresh, 1, 2)
 
+        # cv2.imshow('image',img)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
+
         if (len(contours) <= 0):
             return None
         else:
@@ -121,8 +127,8 @@ class RobotEyes:
 
     def getOrangeBall(self):
         # Orange Ball
-        lower = np.array([100,50,50])
-        upper = np.array([109,235,255])
+        lower = np.array([90,50,50])
+        upper = np.array([119,255,255])
 
         img = self.getImageHSV()
         M = self.getMomentsGivenColorThresh(img, lower, upper)
@@ -134,8 +140,8 @@ class RobotEyes:
 
     def getBlueGoal(self):
         # Blue Goal
-        self.lower = np.array([11,50,50])
-        self.upper = np.array([28,202,187])
+        lower = np.array([11,50,50])
+        upper = np.array([28,202,187])
 
         img = self.getImageHSV()
         M = self.getMomentsGivenColorThresh(img, lower, upper)
@@ -147,8 +153,8 @@ class RobotEyes:
 
     def getYellowGoal(self):
         # Yellow Goal
-        self.lower = np.array([75,50,50])
-        self.upper = np.array([99,199,253])
+        lower = np.array([75,50,50])
+        upper = np.array([99,199,253])
 
         img = self.getImageHSV()
         M = self.getMomentsGivenColorThresh(img, lower, upper)
