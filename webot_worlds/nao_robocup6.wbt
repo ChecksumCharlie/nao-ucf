@@ -1,0 +1,100 @@
+#VRML_SIM V6.0 utf8
+WorldInfo {
+  info [
+    "Simulation of the Robocup Standard Platform League"
+    "Author: Yvan Bourquin"
+  ]
+  title "Robocup"
+  basicTimeStep 40
+}
+Viewpoint {
+  orientation 0.432471 -0.781874 -0.449045 4.46566
+  position 6.16054 9.43331 0.422656
+  follow "ball"
+}
+Background {
+  skyColor [
+    0.678431 0.847059 0.901961
+  ]
+}
+DirectionalLight {
+  ambientIntensity 1.6
+  direction -0.5 -2 -0.5
+  intensity 0.3
+}
+DirectionalLight {
+  ambientIntensity 1.6
+  direction 0.5 -0.5 0.5
+  intensity 0.5
+}
+SoccerField2013 {
+}
+Walls2013 {
+}
+Goal2013 {
+  translation 4.5 0 0
+}
+Goal2013 {
+  translation -4.5 0 0
+  rotation 0 1 0 3.14159
+  postColor 0.152941 0.505882 0.733333
+}
+DEF BALL Ball {
+  translation 0.0198796 0.0598921 0.0280973
+  rotation -0.0393496 0.998866 0.0267847 -0.919561
+  color 1 0.666667 0
+  radius 0.06
+}
+DEF BlueGoalie Nao_H21_V40 {
+  translation -4.13478 0.333016 -0.0523151
+  rotation 0.999999 0.00130579 0.000243471 -1.57061
+  color 0.8 0.8 0.8
+  topCameraWindowPosition 0 0.7
+  waistBand TRUE
+}
+DEF BlueMidfielder Nao_H21_V40 {
+  translation -1.87244 0.320477 1.18212
+  rotation -0.99786 0.0591612 -0.027832 1.57412
+  color 0.8 0.8 0.8
+  controllerArgs "9560"
+  topCameraWindowPosition 0 0.7
+  waistBand TRUE
+}
+DEF BlueStriker Nao_H21_V40 {
+  translation -0.992379 0.320477 0.0662741
+  rotation -0.998103 0.0432125 -0.0438595 1.57247
+  color 0.8 0.8 0.8
+  controllerArgs "9561"
+  topCameraWindowPosition 0 0.7
+  waistBand TRUE
+}
+DEF PinkGoalie Nao_H21_V40 {
+  translation 4.15511 0.320477 -0.025974
+  rotation -0.030663 0.706836 0.706713 -3.07964
+  color 0.8 0.8 0.8
+  controllerArgs "9562"
+  bottomCameraWindowPosition 0 0.3
+  waistBand TRUE
+  waistBandColor 0.9 0.5 0.5
+  channel 1
+}
+DEF PinkMidfielder Nao_H21_V40 {
+  translation 0.99432 0.333016 -0.0198692
+  rotation 0.000491872 0.707172 0.707041 3.14109
+  color 0.8 0.8 0.8
+  controllerArgs "9563"
+  bottomCameraWindowPosition 0 0.3
+  waistBand TRUE
+  waistBandColor 0.9 0.5 0.5
+  channel 1
+}
+DEF PinkStriker Nao_H21_V40 {
+  translation 1.67284 0.333017 -1.28423
+  rotation 0.000488166 0.707172 0.707041 3.14109
+  color 0.8 0.8 0.8
+  controllerArgs "9564"
+  bottomCameraWindowPosition 0 0.3
+  waistBand TRUE
+  waistBandColor 0.9 0.5 0.5
+  channel 1
+}

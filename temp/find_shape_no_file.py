@@ -39,6 +39,7 @@ img = np.array(im)
 
 # Convert BGR to HSV
 img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+img2 = img
 
 # define range of blue color in HSV
 lower_blue = np.array([110,50,50])
@@ -46,7 +47,7 @@ upper_blue = np.array([130,255,255])
 
 # Threshold the HSV image to get only blue color areas
 img = cv2.inRange(img, lower_blue, upper_blue)
-
+img2 = img
 # Finding contours in the grayscale image
 ret,thresh = cv2.threshold(img,127,255,0)
 contours,hierarchy = cv2.findContours(thresh, 1, 2)
@@ -65,6 +66,6 @@ cy = int(M['m01']/M['m00'])
 print cx
 print cy
  
-cv2.imshow('image',img)
+cv2.imshow('image',img2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
