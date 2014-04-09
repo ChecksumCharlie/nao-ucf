@@ -4,6 +4,7 @@ from multiprocessing import Process
 
 import nao_robot as robot
 
+
 # Robot ip address and port
 IP = "127.0.0.1"
 PORT = 9560
