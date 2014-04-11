@@ -16,7 +16,7 @@ class Offender ( Behavior ):
     def Run ( self, robot ):
         Behavior.Run(self, robot)
         ballPos = self.chase_ball ( robot )
-        if ( math.sqrt( math.pow( ballPos[0], 2 ) + math.pow( ballPos[1],2 ) ) <= 0.3 and ballPos[0] != 0 ):
+        if ( in_range( ballPos, 0.3 ) ):
             self.position ( robot )
             self.aim ( robot )
             self.kick ( robot )
@@ -27,7 +27,7 @@ class Offender ( Behavior ):
         while True:
             # Get head position sensor value
             value = self.memoryProxy.getData ( key )
-            #print value
+            
             # Check if move to left
             if ( value >= 0.01 ):
                 print "heading left"
@@ -94,15 +94,22 @@ class Offender ( Behavior ):
             time.sleep (.5)
             
             ballPos = self.ballTrackerProxy.getPosition ()
-            if ( math.sqrt( math.pow( ballPos[0], 2 ) + math.pow( ballPos[1],2 ) ) <= 0.3 and ballPos[0] != 0 ):
+            if ( in_range ( ballPos, 0.3) ):
                 print ( "Distance from Ball: ", math.sqrt( math.pow( ballPos[0], 2 ) + math.pow( ballPos[1], 2 ) ) )
                 break
+            
         return ballPos
         #chase ball here
     
     def position ( self, robot ):
+        r1_loc = [0.0,0.0] #every coordinate is with relation to the robot's position so we will always consider him at 0,0
+        #get ball position
+        ballPos = robot.ballTrackerProxy.getPosition()
+        #get goal position: hard-coded for now need to be able to get the coordinates with relation to the robots current position 
+        goal_loc = [4.5,0.0]
+        
+        
         return
-        #position module
         
     def aim ( self, robot ):
         return
@@ -126,7 +133,10 @@ def get_target_loc(ball_loc, goal_loc, dist):
         target_loc[0]-=x
         target_loc[1]-=y
     return target_loc
-    
+
+def in_range( self, ballPos, amount):
+    return (math.sqrt( math.pow( ballPos[0], 2 ) + math.pow( ballPos[1],2 ) ) <= amount and ballPos[0] != 0)
+
 # returns the distance between points a and b
 def distance(a, b):
     return math.sqrt(math.pow(a,2)+math.pow(b,2))
