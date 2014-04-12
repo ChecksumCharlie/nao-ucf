@@ -68,3 +68,4 @@ class RobotLegs:
                 ["StepHeight", 0.015],
                 ["TorsoWx", 0.0], 
                 ["TorsoWy", 0.0]])
+
