@@ -10,12 +10,12 @@ class LogicFor:
 
     def update(self):
             # new value
-            OrangeBall = self.player.getOrangeBall()
+            RedBall = self.player.getRedBall()
             # behavior logic
-            if (OrangeBall!=None):
-                if (OrangeBall[0]<300):
+            if (len(RedBall)>0):
+                if (RedBall[0]<300):
                     self.player.walk(0.1)
-                elif (OrangeBall[0]>400):
+                elif (RedBall[0]>400):
                     self.player.walk(-0.1)
                 else:
                     self.player.walk(0.0)

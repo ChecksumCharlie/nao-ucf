@@ -6,6 +6,7 @@ from util import nao_robot as robot
 # Import robot behaviors
 from behaviors import simple_midfielder
 from behaviors import simple_goalie
+from behaviors import simple_striker
 
 # Load robots and their behaviors
 RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559)
@@ -24,7 +25,7 @@ RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
 RobotPinkMidfielderLogic = simple_midfielder.LogicFor(RobotPinkMidfielder)
 
 RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
-RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)          
+RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)  
 
 # Run robot FSMs concurrently
 while (True):
@@ -52,6 +53,5 @@ while (True):
     p.start()
     p.join()
  
-
 # Safe Exit for Webots' sake
 sys.exit(0)

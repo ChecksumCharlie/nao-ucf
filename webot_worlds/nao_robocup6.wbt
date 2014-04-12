@@ -9,7 +9,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 0.432471 -0.781874 -0.449045 4.46566
-  position 6.16054 9.43331 0.422656
+  position 6.16044 9.43331 0.421926
   follow "ball"
 }
 Background {
@@ -40,37 +40,37 @@ Goal2013 {
   postColor 0.152941 0.505882 0.733333
 }
 DEF BALL Ball {
-  translation 0.0198796 0.0598921 0.0280973
-  rotation -0.0393496 0.998866 0.0267847 -0.919561
-  color 1 0.666667 0
+  translation 0.019778 0.0598921 0.0273672
+  rotation -0.027919 0.99943 0.019004 -0.919112
+  color 1 0 0
   radius 0.06
 }
 DEF BlueGoalie Nao_H21_V40 {
-  translation -4.13478 0.333016 -0.0523151
-  rotation 0.999999 0.00130579 0.000243471 -1.57061
+  translation -4.13478 0.333016 -0.0523175
+  rotation 0.999999 0.00130283 0.000246532 -1.57061
   color 0.8 0.8 0.8
   topCameraWindowPosition 0 0.7
   waistBand TRUE
 }
 DEF BlueMidfielder Nao_H21_V40 {
-  translation -1.87244 0.320477 1.18212
-  rotation -0.99786 0.0591612 -0.027832 1.57412
+  translation -1.9123 0.333545 1.18338
+  rotation 0.998709 0.00975814 -0.0498553 -1.59209
   color 0.8 0.8 0.8
   controllerArgs "9560"
   topCameraWindowPosition 0 0.7
   waistBand TRUE
 }
 DEF BlueStriker Nao_H21_V40 {
-  translation -0.992379 0.320477 0.0662741
-  rotation -0.998103 0.0432125 -0.0438595 1.57247
+  translation -1.02205 0.333016 0.0662504
+  rotation 1 0.000850564 -0.000205511 -1.57061
   color 0.8 0.8 0.8
   controllerArgs "9561"
   topCameraWindowPosition 0 0.7
   waistBand TRUE
 }
 DEF PinkGoalie Nao_H21_V40 {
-  translation 4.15511 0.320477 -0.025974
-  rotation -0.030663 0.706836 0.706713 -3.07964
+  translation 4.18478 0.333016 -0.0259851
+  rotation 0.000535374 0.707172 0.707041 3.14117
   color 0.8 0.8 0.8
   controllerArgs "9562"
   bottomCameraWindowPosition 0 0.3
@@ -79,8 +79,8 @@ DEF PinkGoalie Nao_H21_V40 {
   channel 1
 }
 DEF PinkMidfielder Nao_H21_V40 {
-  translation 0.99432 0.333016 -0.0198692
-  rotation 0.000491872 0.707172 0.707041 3.14109
+  translation 0.994324 0.333016 -0.0198698
+  rotation 0.000494962 0.707172 0.707041 3.14109
   color 0.8 0.8 0.8
   controllerArgs "9563"
   bottomCameraWindowPosition 0 0.3
@@ -89,8 +89,8 @@ DEF PinkMidfielder Nao_H21_V40 {
   channel 1
 }
 DEF PinkStriker Nao_H21_V40 {
-  translation 1.67284 0.333017 -1.28423
-  rotation 0.000488166 0.707172 0.707041 3.14109
+  translation 1.67284 0.333016 -1.28423
+  rotation 0.000490699 0.707172 0.707041 3.14108
   color 0.8 0.8 0.8
   controllerArgs "9564"
   bottomCameraWindowPosition 0 0.3

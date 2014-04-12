@@ -40,34 +40,17 @@ class RobotEyes:
         # Create a BGR Numpy pixel array from  camera image
         self.img = np.array(self.im)
 
-        # Convert BGR to HSV
-        self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2HSV)
+        # # Convert BGR to HSV
+        # self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2HSV)
 
-        # define range of blue color in HSV
-        # Blue Belt
-        self.lower = np.array([0,50,50])
-        self.upper = np.array([10,255,255])
+        # # define range of blue color in HSV
+        # # Blue Belt
+        # self.lower = np.array([0,50,50])
+        # self.upper = np.array([10,255,255])
 
-        # Blue Goal
-        self.lower = np.array([11,50,50])
-        self.upper = np.array([28,202,187])
 
-        # Pink Player
-        self.lower = np.array([110,50,50])
-        self.upper = np.array([130,255,255])
-
-        
-
-        # Yellow Goal
-        self.lower = np.array([75,50,50])
-        self.upper = np.array([99,199,253])
-
-        # Orange Ball
-        self.lower = np.array([100,50,50])
-        self.upper = np.array([109,235,255])
-
-        # Threshold the HSV image to get only blue color areas
-        self.img = cv2.inRange(self.img, self.lower, self.upper)
+        # # Threshold the HSV image to get only blue color areas
+        # self.img = cv2.inRange(self.img, self.lower, self.upper)
 
         cv2.imshow('image',self.img)
         cv2.waitKey(0)
@@ -102,20 +85,13 @@ class RobotEyes:
         ret,thresh = cv2.threshold(img,127,255,0)
         contours,hierarchy = cv2.findContours(thresh, 1, 2)
 
-        # cv2.imshow('image',img)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
+        coords = []
 
-        if (len(contours) <= 0):
-            return None
-        else:
-            cnt = contours[0]
+        for c in contours:
+
             # The function cv2.moments() gives a dictionary of all moment values calculated
-            M = cv2.moments(cnt)
-            return M
+            M = cv2.moments(c)
 
-    def calculateCentroidXY(self, moments):
-            M = moments
             # m00 - contour area
             # m10 - sum of all points distance to x-axis
             # m01 - sum of all points distance to y-axis
@@ -123,46 +99,58 @@ class RobotEyes:
             cx = int(M['m10']/M['m00'])
             cy = int(M['m01']/M['m00'])
 
-            return [cx, cy]
+            coords += [cx, cy]
 
-    def getOrangeBall(self):
-        # Orange Ball
-        lower = np.array([90,50,50])
-        upper = np.array([119,255,255])
+        return coords
+
+
+    def getRedBall(self):
+        # Red Ball
+        lower = np.array([110,150,150])
+        upper = np.array([130,255,255])
 
         img = self.getImageHSV()
-        M = self.getMomentsGivenColorThresh(img, lower, upper)
-
-        if (M == None):
-            return None
-        else:
-            return self.calculateCentroidXY(M)
+        
+        return self.getMomentsGivenColorThresh(img, lower, upper)
 
     def getBlueGoal(self):
         # Blue Goal
-        lower = np.array([11,50,50])
-        upper = np.array([28,202,187])
+        lower = np.array([10,50,50])
+        upper = np.array([20,255,255])
 
         img = self.getImageHSV()
-        M = self.getMomentsGivenColorThresh(img, lower, upper)
 
-        if (M == None):
-            return None
-        else:
-            return self.calculateCentroidXY(M)
+        return self.getMomentsGivenColorThresh(img, lower, upper)
 
     def getYellowGoal(self):
         # Yellow Goal
-        lower = np.array([75,50,50])
-        upper = np.array([99,199,253])
+        lower = np.array([85,100,100])
+        upper = np.array([105,255,255])
 
         img = self.getImageHSV()
-        M = self.getMomentsGivenColorThresh(img, lower, upper)
+        
+        return self.getMomentsGivenColorThresh(img, lower, upper)
 
-        if (M == None):
-            return None
-        else:
-            return self.calculateCentroidXY(M)
+    def getBluePlayers(self):
+        # Blue Belt
+        lower= np.array([0,50,50])
+        upper = np.array([10,255,255])
+
+        img = self.getImageHSV()
+
+        return self.getMomentsGivenColorThresh(img, lower, upper)
+
+    def getPinkPlayers(self):
+        # Pink Belt
+        lower = np.array([110,50,50])
+        upper = np.array([130,150,255])
+
+        img = self.getImageHSV()
+        
+        return self.getMomentsGivenColorThresh(img, lower, upper)
+
+
+
 
        
 

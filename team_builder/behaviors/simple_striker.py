@@ -14,10 +14,11 @@ class LogicFor:
             # behavior logic
             if (len(RedBall)>0):
                 if (RedBall[0]<300):
-                    self.player.sidestep(1.0)
+                    self.player.walk(0.1)
                 elif (RedBall[0]>400):
-                    self.player.sidestep(-1.0)
+                    self.player.walk(-0.1)
                 else:
-                    self.player.sidestep(0.0)
+                    self.player.walk(0.0)
             else:
-                self.player.sidestep(0.0)
+                self.player.rightKick(1.0, 1.5, 2.5)
+

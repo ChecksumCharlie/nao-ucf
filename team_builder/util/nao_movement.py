@@ -1,5 +1,7 @@
-
+import motion
 from naoqi import ALProxy
+import math
+import time
 
 
 
@@ -69,3 +71,151 @@ class RobotLegs:
                 ["TorsoWx", 0.0], 
                 ["TorsoWy", 0.0]])
 
+    def rightKick(self, prime, execute, coolDown):
+
+        # Activate Whole Body Balancer
+        isEnabled  = True
+        self.motionProxy.wbEnable(isEnabled)
+
+        # Legs are constrained fixed
+        stateName  = "Fixed"
+        supportLeg = "Legs"
+        self.motionProxy.wbFootState(stateName, supportLeg)
+
+        # Constraint Balance Motion
+        isEnable   = True
+        supportLeg = "Legs"
+        self.motionProxy.wbEnableBalanceConstraint(isEnable, supportLeg)
+
+        # Com go to LLeg
+        supportLeg = "LLeg"
+        duration   = 2.0
+        self.motionProxy.wbGoToBalance(supportLeg, duration)
+
+        # RLeg is free
+        stateName  = "Free"
+        supportLeg = "RLeg"
+        self.motionProxy.wbFootState(stateName, supportLeg)
+
+        # RLeg is optimized
+        effectorName = "RLeg"
+        axisMask     = 63
+        space        = motion.FRAME_ROBOT
+
+
+        # Motion of the RLeg
+        dx      = 0.05                 # translation axis X (meters)
+        dz      = 0.05                 # translation axis Z (meters)
+        dwy     = 5.0*math.pi/180.0    # rotation axis Y (radian)
+
+
+        times   = [1.0, 1.4, 2.5]
+        isAbsolute = False
+
+        targetList = [
+          [-dx, 0.0, dz, 0.0, +dwy, 0.0],
+          [+dx, 0.0, dz, 0.0, 0.0, 0.0],
+          [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+        #proxy.positionInterpolation(effectorName, space, targetList,
+        #                             axisMask, times, isAbsolute)
+
+
+        # Example showing how to Enable Effector Control as an Optimization
+        isActive     = False
+        self.motionProxy.wbEnableEffectorOptimization(effectorName, isActive)
+
+        # Com go to LLeg
+        supportLeg = "RLeg"
+        duration   = 2.0
+        self.motionProxy.wbGoToBalance(supportLeg, duration)
+
+        # RLeg is free
+        stateName  = "Free"
+        supportLeg = "LLeg"
+        self.motionProxy.wbFootState(stateName, supportLeg)
+
+        effectorName = "LLeg"
+        self.motionProxy.positionInterpolation(effectorName, space, targetList,
+                                    axisMask, times, isAbsolute)
+
+        time.sleep(1.0)
+
+        # Deactivate Head tracking
+        isEnabled    = False
+        self.motionProxy.wbEnable(isEnabled)
+
+
+    def leftKick(self, prime, execute, coolDown):
+        
+        # Activate Whole Body Balancer
+        isEnabled  = True
+        self.motionProxy.wbEnable(isEnabled)
+
+        # Legs are constrained fixed
+        stateName  = "Fixed"
+        supportLeg = "Legs"
+        self.motionProxy.wbFootState(stateName, supportLeg)
+
+        # Constraint Balance Motion
+        isEnable   = True
+        supportLeg = "Legs"
+        self.motionProxy.wbEnableBalanceConstraint(isEnable, supportLeg)
+
+        # Com go to LLeg
+        supportLeg = "LLeg"
+        duration   = 2.0
+        self.motionProxy.wbGoToBalance(supportLeg, duration)
+
+        # RLeg is free
+        stateName  = "Free"
+        supportLeg = "RLeg"
+        self.motionProxy.wbFootState(stateName, supportLeg)
+
+        # RLeg is optimized
+        effectorName = "RLeg"
+        axisMask     = 63
+        space        = motion.FRAME_ROBOT
+
+
+        # Motion of the RLeg
+        dx      = 0.05                 # translation axis X (meters)
+        dz      = 0.05                 # translation axis Z (meters)
+        dwy     = 5.0*math.pi/180.0    # rotation axis Y (radian)
+
+
+        times   = [1.0, 1.05, 2.5]
+        isAbsolute = False
+
+        targetList = [
+          [-dx, 0.0, dz, 0.0, +dwy, 0.0],
+          [+dx, 0.0, dz, 0.0, 0.0, 0.0],
+          [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+        #proxy.positionInterpolation(effectorName, space, targetList,
+        #                             axisMask, times, isAbsolute)
+
+
+        # Example showing how to Enable Effector Control as an Optimization
+        isActive     = False
+        self.motionProxy.wbEnableEffectorOptimization(effectorName, isActive)
+
+        # Com go to LLeg
+        supportLeg = "RLeg"
+        duration   = 2.0
+        self.motionProxy.wbGoToBalance(supportLeg, duration)
+
+        # RLeg is free
+        stateName  = "Free"
+        supportLeg = "LLeg"
+        self.motionProxy.wbFootState(stateName, supportLeg)
+
+        effectorName = "LLeg"
+        self.motionProxy.positionInterpolation(effectorName, space, targetList,
+                                    axisMask, times, isAbsolute)
+
+        time.sleep(1.0)
+
+        # Deactivate Head tracking
+        isEnabled    = False
+        self.motionProxy.wbEnable(isEnabled)

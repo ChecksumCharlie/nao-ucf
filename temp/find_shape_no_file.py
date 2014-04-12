@@ -9,7 +9,7 @@ import Image
 
 # Robot ip address and port
 IP = "127.0.0.1"
-PORT = 9560
+PORT = 9563
 
 # Parameters for Camera Proxy
 camProxy = ALProxy("ALVideoDevice", IP, PORT)
@@ -41,31 +41,54 @@ img = np.array(im)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 img2 = img
 
-# define range of blue color in HSV
-lower_blue = np.array([110,50,50])
-upper_blue = np.array([130,255,255])
+
+
+# Blue Belt
+lower= np.array([0,50,50])
+upper = np.array([10,255,255])
+
+# # Blue Goal
+# lower = np.array([10,50,50])
+# upper = np.array([20,255,255])
+
+# # Pink Belt
+# lower = np.array([110,50,50])
+# upper = np.array([130,150,255])
+
+# # Yellow Goal
+# lower = np.array([85,100,100])
+# upper = np.array([105,255,255])
+
+# # Red Ball
+# lower = np.array([110,150,150])
+# upper = np.array([130,255,255])
 
 # Threshold the HSV image to get only blue color areas
-img = cv2.inRange(img, lower_blue, upper_blue)
+img = cv2.inRange(img, lower, upper)
 img2 = img
 # Finding contours in the grayscale image
 ret,thresh = cv2.threshold(img,127,255,0)
 contours,hierarchy = cv2.findContours(thresh, 1, 2)
-cnt = contours[0]
 
-# The function cv2.moments() gives a dictionary of all moment values calculated
-M = cv2.moments(cnt)
+for c in contours:
 
-# m00 - contour area
-# m10 - sum of all points distance to x-axis
-# m01 - sum of all points distance to y-axis
-# ==> centroid_x = M10/M00 and centroid_y = M01/M00
-cx = int(M['m10']/M['m00'])
-cy = int(M['m01']/M['m00'])
+    # The function cv2.moments() gives a dictionary of all moment values calculated
+    M = cv2.moments(c)
 
-print cx
-print cy
+    # m00 - contour area
+    # m10 - sum of all points distance to x-axis
+    # m01 - sum of all points distance to y-axis
+    # ==> centroid_x = M10/M00 and centroid_y = M01/M00
+    cx = int(M['m10']/M['m00'])
+    cy = int(M['m01']/M['m00'])
+
+    print cx
+    print cy
  
 cv2.imshow('image',img2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# green = np.uint8([[[203, 202, 187 ]]])
+# hsv_green = cv2.cvtColor(green,cv2.COLOR_BGR2HSV)
+# print hsv_green

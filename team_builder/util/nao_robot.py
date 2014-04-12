@@ -15,11 +15,11 @@ class CreateRobot:
     def stop(self):
     	self.RobotLegs.stop()
 
-    def getImage(self):
-    	self.RobotEyes.getImage()
+    def displayImage(self):
+    	self.RobotEyes.displayImage()
 
-    def getOrangeBall(self):
-    	return self.RobotEyes.getOrangeBall()
+    def getRedBall(self):
+    	return self.RobotEyes.getRedBall()
 
     def getYellowGoal(self):
     	return self.RobotEyes.getYellowGoal()
@@ -27,7 +27,17 @@ class CreateRobot:
     def getBlueGoal(self):
     	return self.RobotEyes.getBlueGoal()
 
+    def getBluePlayers(self):
+        return self.RobotEyes.getBluePlayers()
+
+    def getPinkPlayers(self):
+        return self.RobotEyes.getPinkPlayers()   
+
     def sidestep(self, value):
         self.RobotLegs.sidestep(value)
 
-       
+    def rightKick(self, prime, execute, cooldown):
+        self.RobotLegs.rightKick(prime, execute, cooldown)
+
+    def leftKick(self, prime, execute, cooldown):
+        self.RobotLegs.rightKick(prime, execute, cooldown)       
