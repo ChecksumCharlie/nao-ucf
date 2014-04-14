@@ -36,8 +36,11 @@ class CreateRobot:
     def sidestep(self, value):
         self.RobotLegs.sidestep(value)
 
-    def rightKick(self, prime, execute, cooldown):
-        self.RobotLegs.rightKick(prime, execute, cooldown)
+    def killWalk(self):
+        self.RobotLegs.killWalk()
 
-    def leftKick(self, prime, execute, cooldown):
-        self.RobotLegs.rightKick(prime, execute, cooldown)       
+    def leftKick(self, prime, execute, cool_down):
+        self.RobotLegs.leftKick(prime, execute, cool_down)
+
+    def rightKick(self, prime, execute, cool_down):
+        self.RobotLegs.rightKick(prime, execute, cool_down)       

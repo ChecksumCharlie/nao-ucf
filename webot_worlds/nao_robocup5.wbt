@@ -41,7 +41,7 @@ Goal2013 {
 }
 DEF BALL Ball {
   translation -0.0126765 0.0325 -0.0232911
-  color 1 0.666667 0
+  color 1 0 0
   radius 0.06
 }
 DEF GOAL_KEEPER Nao_H21_V40 {

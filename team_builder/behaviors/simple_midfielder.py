@@ -12,6 +12,8 @@ class LogicFor:
             # new value
             RedBall = self.player.getRedBall()
             # behavior logic
+            
+            
             if (len(RedBall)>0):
                 if (RedBall[0]<300):
                     self.player.walk(0.1)

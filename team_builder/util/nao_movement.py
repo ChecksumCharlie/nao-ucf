@@ -3,8 +3,6 @@ from naoqi import ALProxy
 import math
 import time
 
-
-
 class RobotLegs:
     def __init__(self, IP, PORT):
         self.IP = IP
@@ -14,7 +12,7 @@ class RobotLegs:
 
         self.motionProxy.stiffnessInterpolation("Body", 1.0, 1.0)
 
-    def walk(self, value=0):
+    def walk(self, value):
         self.motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,
                 [#LEFT
                 ["MaxStepX", 0.07],
@@ -71,7 +69,10 @@ class RobotLegs:
                 ["TorsoWx", 0.0], 
                 ["TorsoWy", 0.0]])
 
-    def rightKick(self, prime, execute, coolDown):
+    def killWalk(self):
+        self.motionProxy.stopWalk()
+
+    def leftKick(self, prime, execute, cool_down):
 
         # Activate Whole Body Balancer
         isEnabled  = True
@@ -109,7 +110,7 @@ class RobotLegs:
         dwy     = 5.0*math.pi/180.0    # rotation axis Y (radian)
 
 
-        times   = [1.0, 1.4, 2.5]
+        times   = [prime, execute, cool_down]
         isAbsolute = False
 
         targetList = [
@@ -117,9 +118,7 @@ class RobotLegs:
           [+dx, 0.0, dz, 0.0, 0.0, 0.0],
           [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
 
-        #proxy.positionInterpolation(effectorName, space, targetList,
-        #                             axisMask, times, isAbsolute)
-
+    
 
         # Example showing how to Enable Effector Control as an Optimization
         isActive     = False
@@ -146,7 +145,7 @@ class RobotLegs:
         self.motionProxy.wbEnable(isEnabled)
 
 
-    def leftKick(self, prime, execute, coolDown):
+    def rightKick(self, prime, execute, cool_down):
         
         # Activate Whole Body Balancer
         isEnabled  = True
