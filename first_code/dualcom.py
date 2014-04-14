@@ -8,7 +8,7 @@ import time
 from naoqi import ALProxy
 
 
-def main(nao_ip, nao_port):
+def start(nao_ip, nao_port):
     
     # Init proxies.
     try:
@@ -39,8 +39,7 @@ def main(nao_ip, nao_port):
     # First, set Head Stiffness to ON.
     motionProxy.setStiffnesses("Head", 1.0)
     
-    # Then, start tracker.
-    redBallTracker.startTracker()
+   
     
     # Will go to 1.0 then 0 radian
     # in two seconds
@@ -50,30 +49,11 @@ def main(nao_ip, nao_port):
         [1 , 2],
         False
     )
-    # Send NAO to Pose Init
+    # Postures available: Crouch, LyingBack, LyingBelly, Sit, SitRelax, Stand, StandInit, StandZero
     postureProxy.goToPosture("StandInit", 0.5)
     print "I'm ready, defending UCF's goal"
 
-    while True:
-        # Get head position sensor value
-        key = "Device/SubDeviceList/HeadYaw/Position/Sensor/Value"
-        value = memoryProxy.getData(key)
-        print value
-        # Check if move to left
-        if value>=0.1:
-            motionProxy.setWalkTargetVelocity(0.0, 1.0, 0.0, 1.0)
-        # Check if move to right
-        elif value<=-0.1:
-            motionProxy.setWalkTargetVelocity(0.0, -1.0, 0.0, 1.0)
-        # Check if need to stop
-        else:
-            motionProxy.setWalkTargetVelocity(0.0, 0.0, 0.0, 0.0)
-        
-        time.sleep(1)
     
-    # Stop tracker and remove head stiffness.
-    redBallTracker.stopTracker()
-    motionProxy.setStiffnesses("Head", 0.0)
     
         
 if __name__ == "__main__":
@@ -86,5 +66,4 @@ if __name__ == "__main__":
     else:
         nao_ip = sys.argv[1]
         nao_port = sys.argv[2]
-
-    main(nao_ip, nao_port)
+    start(nao_ip, nao_port)

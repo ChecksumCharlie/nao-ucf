@@ -14,16 +14,16 @@ from Robot import Robot
     
 IP = "127.0.0.1"
 PORT = 9560 # List of these...
-Captain = Robot ( IP, PORT )
+Beckham = Robot ( IP, PORT )
 
-Captain.Initialize (Offender())
+Beckham.Initialize (Offender())
 print "Im Alive"
-#Captain.Set (Offender)
+#Beckham.Set (Offender)
 while game_in_action:
-    Captain.Run ()
+    Beckham.Run ()
     #some determination algorithm
-    #Captain.Set(Defender)
+    #Beckham.Set(Defender)
     #some game state calculation 
     game_in_action = False #or true...?
 
-Captain.Dispose ()
+Beckham.Dispose ()

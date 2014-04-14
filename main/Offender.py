@@ -26,13 +26,13 @@ class Offender ( Behavior ):
         key = "Device/SubDeviceList/HeadYaw/Position/Sensor/Value"
         while True:
             # Get head position sensor value
-            value = self.memoryProxy.getData ( key )
+            value = self.memoryProxy.post.getData ( key )
             
             # Check if move to left
             if ( value >= 0.01 ):
                 print "heading left"
                 #motionProxy.stopMove()
-                self.motionProxy.setWalkTargetVelocity ( 1.0, 0.0, value, 1.0,
+                self.motionProxy.post.setWalkTargetVelocity ( 1.0, 0.0, value, 1.0,
                     [#Left
                     self.maxStepXRight,
                     #maxStepYRight,
@@ -53,7 +53,7 @@ class Offender ( Behavior ):
             elif ( value <= -0.01 ):
                 print "heading right"
                 #motionProxy.stopMove()
-                self.motionProxy.setWalkTargetVelocity ( 1.0, 0.0, value, 1.0,
+                self.motionProxy.post.setWalkTargetVelocity ( 1.0, 0.0, value, 1.0,
                     [#Left
                     self.maxStepXRight,
                     #maxStepYRight,
@@ -73,7 +73,7 @@ class Offender ( Behavior ):
             # Check if need to stop
             else:
                 print "heading straight"
-                self.motionProxy.setWalkTargetVelocity ( 1.0, 0.0, 0.0, 1.0,
+                self.motionProxy.post.setWalkTargetVelocity ( 1.0, 0.0, 0.0, 1.0,
                     [#Left
                     self.maxStepXRight,
                     #maxStepYRight,
@@ -93,7 +93,7 @@ class Offender ( Behavior ):
             
             time.sleep (.5)
             
-            ballPos = self.ballTrackerProxy.getPosition ()
+            ballPos = self.ballTrackerProxy.post.getPosition ()
             if ( in_range ( ballPos, 0.3) ):
                 print ( "Distance from Ball: ", math.sqrt( math.pow( ballPos[0], 2 ) + math.pow( ballPos[1], 2 ) ) )
                 break
