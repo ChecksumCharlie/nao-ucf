@@ -28,30 +28,30 @@ RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
 RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)  
 
 # Run robot FSMs concurrently
-while (True):
-    p = Process(target=RobotBlueGoalieLogic.update())
-    p.start()
-    p.join()
 
-    p = Process(target=RobotBlueMidfielderLogic.update())
-    p.start()
-    p.join()
+p = Process(target=RobotBlueGoalieLogic.update())
+p.start()
+p.join()
 
-    p = Process(target=RobotBlueStrikerLogic.update())
-    p.start()
-    p.join()
+p = Process(target=RobotBlueMidfielderLogic.update())
+p.start()
+p.join()
 
-    p = Process(target=RobotPinkGoalieLogic.update())
-    p.start()
-    p.join()
+p = Process(target=RobotBlueStrikerLogic.update())
+p.start()
+p.join()
 
-    p = Process(target=RobotPinkMidfielderLogic.update())
-    p.start()
-    p.join()
+p = Process(target=RobotPinkGoalieLogic.update())
+p.start()
+p.join()
 
-    p = Process(target=RobotPinkStrikerLogic.update())
-    p.start()
-    p.join()
+p = Process(target=RobotPinkMidfielderLogic.update())
+p.start()
+p.join()
+
+p = Process(target=RobotPinkStrikerLogic.update())
+p.start()
+p.join()
  
 # Safe Exit for Webots' sake
 sys.exit(0)

@@ -8,7 +8,11 @@ class CreateRobot:
 
     	self.RobotEyes = vision.RobotEyes(self.IP, self.PORT)
     	self.RobotLegs = movement.RobotLegs(self.IP, self.PORT)
-
+	
+	#rotates the robot counter-clockwise for positive radians and clockwise for negative radians
+	def rotate(self, radians):
+		self.RobotLegs.rotate(radians)
+	
     def walk(self, value=0):
     	self.RobotLegs.walk(value)
 
@@ -50,3 +54,6 @@ class CreateRobot:
 
     def getAngle(self, string):
         return self.RobotLegs.getAngle(string)
+    
+    def rotateSelf(self)
+    	return self.RobotLegs.rotateSelf()

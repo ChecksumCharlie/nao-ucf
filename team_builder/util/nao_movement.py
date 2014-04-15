@@ -8,10 +8,10 @@ class RobotLegs:
         self.IP = IP
         self.PORT = PORT
 
-        self.motionProxy = ALProxy("ALMotion", self.IP, self.PORT)
-
-        self.motionProxy.stiffnessInterpolation("Body", 1.0, 1.0)
-
+        self.motionProxy = ALProxy( "ALMotion", self.IP, self.PORT )
+        self.motionProxy.stiffnessInterpolation( "Body", 1.0, 1.0 )
+        self.postureProxy = AlProxy( "AlRobotPosture", self.IP, self.PORT )
+	
     def walk(self, value):
         self.motionProxy.setWalkTargetVelocity(0.50,0.0,value,1.0,
                 [#LEFT
@@ -71,7 +71,7 @@ class RobotLegs:
 
     def killWalk(self):
         self.motionProxy.stopWalk()
-
+	
     def leftKick(self, prime, execute, cool_down):
 
         # Activate Whole Body Balancer
@@ -225,3 +225,7 @@ class RobotLegs:
 
     def getAngle(self, string):
         return self.motionProxy.getAngles(string, False)
+        
+    #rotates the robot counter-clockwise for positive radians and clockwise for negative radians
+	def rotate(self, radians):
+		self.motionProxy.moveTo(0, 0, radians)
