@@ -16,7 +16,7 @@ RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
 RobotBlueMidfielderLogic = simple_midfielder.LogicFor(RobotBlueMidfielder)
 
 RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
-RobotBlueStrikerLogic = simple_midfielder.LogicFor(RobotBlueStriker)
+RobotBlueStrikerLogic = simple_stricker.LogicFor(RobotBlueStriker)
 
 RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
 RobotPinkGoalieLogic = simple_goalie.LogicFor(RobotPinkGoalie) 

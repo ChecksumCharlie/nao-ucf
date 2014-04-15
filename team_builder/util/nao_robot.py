@@ -43,4 +43,10 @@ class CreateRobot:
         self.RobotLegs.leftKick(prime, execute, cool_down)
 
     def rightKick(self, prime, execute, cool_down):
-        self.RobotLegs.rightKick(prime, execute, cool_down)       
+        self.RobotLegs.rightKick(prime, execute, cool_down) 
+
+    def tiltHead(self, pitch):
+        self.RobotLegs.tiltHead(pitch)     
+
+    def getAngle(self, string):
+        return self.RobotLegs.getAngle(string)

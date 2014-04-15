@@ -13,7 +13,7 @@ class RobotLegs:
         self.motionProxy.stiffnessInterpolation("Body", 1.0, 1.0)
 
     def walk(self, value):
-        self.motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,
+        self.motionProxy.setWalkTargetVelocity(0.50,0.0,value,1.0,
                 [#LEFT
                 ["MaxStepX", 0.07],
                 #maxStepYRight,
@@ -218,3 +218,10 @@ class RobotLegs:
         # Deactivate Head tracking
         isEnabled    = False
         self.motionProxy.wbEnable(isEnabled)
+
+    def tiltHead(self, pitch):
+        self.motionProxy.setStiffnesses("Head", 1.0)
+        self.motionProxy.angleInterpolation("HeadPitch", pitch, 2.0, True)
+
+    def getAngle(self, string):
+        return self.motionProxy.getAngles(string, False)
