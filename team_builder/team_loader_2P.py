@@ -22,9 +22,9 @@ RobotPink = robot.CreateRobot(IP, PORT)
 RobotPinkLogic = simple_midfielder.LogicFor(RobotPink)
 
 while (True):
-    p = Process(target=RobotPinkLogic.update())
-    p.start()
-    p.join()
+    #p = Process(target=RobotPinkLogic.update())
+    #p.start()
+    #p.join()
 
     p = Process(target=RobotBlueLogic.update())
     p.start()

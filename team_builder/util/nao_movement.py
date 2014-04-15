@@ -218,3 +218,11 @@ class RobotLegs:
         # Deactivate Head tracking
         isEnabled    = False
         self.motionProxy.wbEnable(isEnabled)
+
+    def getAngle(self, string):
+        return self.motionProxy.getAngles(string, False)
+
+    def setHeadAngle(self, angle, string):
+        self.motionProxy.setStiffnesses("Head", 1.0)
+        angs = [math.radians(angle)]
+        self.motionProxy.angleInterpolation(string, angs, 1, True)

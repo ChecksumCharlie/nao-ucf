@@ -9,7 +9,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 0.997521 0.0679116 -0.0184164 5.83382
-  position -0.419072 5.67519 9.91989
+  position -0.41972 5.69755 9.91598
   follow "ball"
 }
 Background {
@@ -40,13 +40,14 @@ Goal2013 {
   rotation 0 1 0 3.14159
 }
 DEF BALL Ball {
-  translation -0.0126765 0.0325 -0.0232911
+  translation -0.0135339 0.0598921 -0.0296729
+  rotation -0.670582 0.740697 0.0410835 0.043969
   color 1 0 0
   radius 0.06
 }
 DEF GOAL_KEEPER Nao_H21_V40 {
-  translation 1.793 0.33 -0.0528165
-  rotation 0 0.707107 0.707107 3.1416
+  translation 1.43017 0.333016 -0.64526
+  rotation 0.00037521 0.707172 0.707041 3.14085
   color 0.8 0.8 0.8
   bottomCameraWindowPosition 0 0.3
   waistBand TRUE
@@ -54,9 +55,16 @@ DEF GOAL_KEEPER Nao_H21_V40 {
   channel 1
 }
 DEF PLAYER Nao_H21_V40 {
-  translation -1.68596 0.33 0.00224457
+  translation -1.68631 0.333016 0.00230778
+  rotation 1 0.000528066 -0.00052806 -1.57061
   color 0.8 0.8 0.8
   controllerArgs "9560"
   topCameraWindowPosition 0 0.7
   waistBand TRUE
+}
+Nao_H21_V33 {
+  translation 1.38346 0.333046 0.348476
+  rotation -0.999804 0.0134903 0.0144908 1.57096
+  waistBand TRUE
+  waistBandColor 0.901961 0.501961 0.501961
 }
