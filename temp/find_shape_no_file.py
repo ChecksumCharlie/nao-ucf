@@ -11,13 +11,18 @@ import Image
 IP = "127.0.0.1"
 PORT = 9563
 
-# Parameters for Camera Proxy
+ # Parameters for Camera Proxy
 camProxy = ALProxy("ALVideoDevice", IP, PORT)
 resolution = 2    # VGA
 colorSpace = 11   # RGB
+bottomCam = 1
+topCam = 0
+
+
 
 # Subscribe to Camera Proxy
-videoClient = camProxy.subscribe("python_client", resolution, colorSpace, 5)
+videoClient2 = camProxy.subscribeCamera("python_client", topCam, resolution, colorSpace, 5)
+videoClient = camProxy.subscribeCamera("python_client", bottomCam, resolution, colorSpace, 5)
 
 # Get a camera image.
 # image[6] contains the image data passed as an array of ASCII chars.
@@ -39,13 +44,13 @@ img = np.array(im)
 
 # Convert BGR to HSV
 img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-img2 = img
+
 
 
 
 # Blue Belt
-lower= np.array([0,50,50])
-upper = np.array([10,255,255])
+# lower= np.array([0,50,50])
+# upper = np.array([10,255,255])
 
 # # Blue Goal
 # lower = np.array([10,50,50])
@@ -60,8 +65,8 @@ upper = np.array([10,255,255])
 # upper = np.array([105,255,255])
 
 # # Red Ball
-# lower = np.array([110,150,150])
-# upper = np.array([130,255,255])
+lower = np.array([110,150,150])
+upper = np.array([130,255,255])
 
 # Threshold the HSV image to get only blue color areas
 img = cv2.inRange(img, lower, upper)
@@ -75,6 +80,10 @@ for c in contours:
     # The function cv2.moments() gives a dictionary of all moment values calculated
     M = cv2.moments(c)
 
+    x,y, w, h = cv2.boundingRect(c)
+    
+    # print h
+
     # m00 - contour area
     # m10 - sum of all points distance to x-axis
     # m01 - sum of all points distance to y-axis
@@ -85,9 +94,13 @@ for c in contours:
     print cx
     print cy
  
-cv2.imshow('image',img2)
+cv2.imshow('image',img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# Unsubsribe from Camera Proxy
+camProxy.unsubscribe(videoClient)
+camProxy.unsubscribe(videoClient2)
 
 # green = np.uint8([[[203, 202, 187 ]]])
 # hsv_green = cv2.cvtColor(green,cv2.COLOR_BGR2HSV)

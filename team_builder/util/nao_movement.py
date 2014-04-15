@@ -9,6 +9,7 @@ class RobotLegs:
         self.PORT = PORT
 
         self.motionProxy = ALProxy("ALMotion", self.IP, self.PORT)
+        self.postureProxy = ALProxy("ALRobotPosture", self.IP, self.PORT)
 
         self.motionProxy.stiffnessInterpolation("Body", 1.0, 1.0)
 
@@ -226,3 +227,32 @@ class RobotLegs:
         self.motionProxy.setStiffnesses("Head", 1.0)
         angs = [math.radians(angle)]
         self.motionProxy.angleInterpolation(string, angs, 1, True)
+
+    def simple180(self):        
+
+        x  = 0
+        y  = 0
+        # pi anti-clockwise (180 degrees)
+        theta = 3.1418
+
+        self.motionProxy.moveTo(x, y, theta)
+
+
+    def simple90left(self):
+        x  = 0
+        y  = 0
+        # pi anti-clockwise (180 degrees)
+        theta = 1.5709 
+
+        self.motionProxy.moveTo(x, y, theta)
+
+    def simple90right(self):
+        x  = 0
+        y  = 0
+        # pi anti-clockwise (180 degrees)
+        theta = -1.5709 
+
+        self.motionProxy.moveTo(x, y, theta)
+
+    def initStance(self):
+        self.postureProxy.goToPosture("StandInit", 0.5)

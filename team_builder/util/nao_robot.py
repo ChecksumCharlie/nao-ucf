@@ -1,3 +1,5 @@
+import time
+
 import nao_vision as vision
 import nao_movement as movement
 
@@ -5,6 +7,8 @@ class CreateRobot:
     def __init__(self, IP, PORT):
     	self.IP = IP
     	self.PORT = PORT
+
+        self.timeMemory = time.time()
 
     	self.RobotEyes = vision.RobotEyes(self.IP, self.PORT)
     	self.RobotLegs = movement.RobotLegs(self.IP, self.PORT)
@@ -50,3 +54,37 @@ class CreateRobot:
 
     def setHeadAngle(self, angle, string):
         self.RobotLegs.setHeadAngle(angle, string)
+
+    def simple180(self):
+        self.RobotLegs.simple180()
+
+    def simple90left(self):
+        self.RobotLegs.simple90left()
+
+    def simple90right(self):
+        self.RobotLegs.simple90right()
+
+    def getYellowGoalWidth(self):
+        self.RobotEyes.getYellowGoalWidth()
+
+    def getBlueGoalWidth(self):
+        self.RobotEyes.getBlueGoalWidth()
+
+    def getRedBall2(self):
+        self.RobotEyes.getRedBall2()
+        
+    def getBlueGoal2(self):
+       self.RobotEyes.getBlueGoal2()
+
+    def getYellowGoal2(self):
+        self.RobotEyes.getYellowGoal2()
+        
+    def getBluePlayers2(self):
+        self.RobotEyes.getBluePlayers2()
+        
+    def getPinkPlayers2(self):
+        self.RobotEyes.getPinkPlayers2()
+
+    def initStance(self):
+        self.RobotLegs.initStance()
+       

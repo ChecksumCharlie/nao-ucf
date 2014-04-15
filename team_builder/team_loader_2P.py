@@ -6,20 +6,23 @@ from util import nao_robot as robot
 from behaviors import simple_midfielder
 from behaviors import simple_goalie
 from behaviors import simple_striker
+from behaviors import template_player
 
 # Robot ip address and port
 IP = "127.0.0.1"
 PORT = 9560
 
 RobotBlue = robot.CreateRobot(IP, PORT)
-RobotBlueLogic = simple_striker.LogicFor(RobotBlue)
+RobotBlueLogic = template_player.LogicFor(RobotBlue)
 
 
 IP = "127.0.0.1"
 PORT = 9559
 
 RobotPink = robot.CreateRobot(IP, PORT)
-RobotPinkLogic = simple_midfielder.LogicFor(RobotPink)
+RobotPinkLogic = template_player.LogicFor(RobotPink)
+
+print "All Robots and Logic loaded!"
 
 while (True):
     #p = Process(target=RobotPinkLogic.update())

@@ -10,3 +10,9 @@ TODO: turning on spot
 TODO: other player avoidance
 
 TODO: fix ball and yellow goal issues
+
+added proper time steps to update cycles
+
+added second camera
+
+TODO: figure out how to check if cameras are subscribed

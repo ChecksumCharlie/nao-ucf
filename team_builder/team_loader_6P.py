@@ -7,25 +7,30 @@ from util import nao_robot as robot
 from behaviors import simple_midfielder
 from behaviors import simple_goalie
 from behaviors import simple_striker
+from behaviors import static_player
+from behaviors import teamLadder_goalie
+from behaviors import template_player
 
 # Load robots and their behaviors
 RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559)
-RobotBlueGoalieLogic = simple_goalie.LogicFor(RobotBlueGoalie)
+RobotBlueGoalieLogic = template_player.LogicFor(RobotBlueGoalie)
 
 RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
-RobotBlueMidfielderLogic = simple_midfielder.LogicFor(RobotBlueMidfielder)
+RobotBlueMidfielderLogic = static_player.LogicFor(RobotBlueMidfielder)
 
 RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
-RobotBlueStrikerLogic = simple_midfielder.LogicFor(RobotBlueStriker)
+RobotBlueStrikerLogic = static_player.LogicFor(RobotBlueStriker)
 
 RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
-RobotPinkGoalieLogic = simple_goalie.LogicFor(RobotPinkGoalie) 
+RobotPinkGoalieLogic = static_player.LogicFor(RobotPinkGoalie) 
 
 RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
-RobotPinkMidfielderLogic = simple_midfielder.LogicFor(RobotPinkMidfielder)
+RobotPinkMidfielderLogic = static_player.LogicFor(RobotPinkMidfielder)
 
 RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
-RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)  
+RobotPinkStrikerLogic = static_player.LogicFor(RobotPinkStriker)  
+
+print "All Robots and Logic loaded!"
 
 # Run robot FSMs concurrently
 while (True):
