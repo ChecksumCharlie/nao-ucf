@@ -1,6 +1,5 @@
 
 from naoqi import ALProxy
-from math import sin, cos, sqrt, pi
 import cv2
 import numpy as np
 import Image
@@ -23,6 +22,8 @@ class RobotEyes:
     def __del__(self):
         # Unsubsribe from Camera Proxy
         self.camProxy.unsubscribe(self.videoClient)
+        if ( self.camProxy.isRunning() ):
+            self.camProxy.stop()
 
     def displayImage(self):
         # Get a camera image.
@@ -78,12 +79,12 @@ class RobotEyes:
         return img
 
     def getMomentsGivenColorThresh(self, img, lower, upper):
-         # Threshold the HSV image to get only blue color areas
+        # Threshold the HSV image to get only blue color areas
         img = cv2.inRange(img, lower, upper)
-
+        
         # Finding contours in the grayscale image
-        ret,thresh = cv2.threshold(img,127,255,0)
-        contours,hierarchy = cv2.findContours(thresh, 1, 2)
+        thresh = cv2.threshold(img,127,255,0)
+        contours = cv2.findContours(thresh, 1, 2)
 
         coords = []
 
@@ -148,10 +149,4 @@ class RobotEyes:
         img = self.getImageHSV()
         
         return self.getMomentsGivenColorThresh(img, lower, upper)
-
-
-
-
-       
-
-        
+    

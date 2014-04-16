@@ -1,10 +1,6 @@
 from __future__ import division
-import sys
 import time
 import math
-from multiprocessing import Process
-
-from util import nao_robot as robot
 
 class LogicFor:
     def __init__(self, RobotGiven):

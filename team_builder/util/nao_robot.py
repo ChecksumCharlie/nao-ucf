@@ -3,33 +3,37 @@ import nao_movement as movement
 
 class CreateRobot:
     def __init__(self, IP, PORT):
-    	self.IP = IP
-    	self.PORT = PORT
-
-    	self.RobotEyes = vision.RobotEyes(self.IP, self.PORT)
-    	self.RobotLegs = movement.RobotLegs(self.IP, self.PORT)
-	
-	#rotates the robot counter-clockwise for positive radians and clockwise for negative radians
-	def rotate(self, radians):
-		self.RobotLegs.rotate(radians)
-	
+        self.IP = IP
+        self.PORT = PORT
+        
+        self.RobotEyes = vision.RobotEyes(self.IP, self.PORT)
+        self.RobotLegs = movement.RobotLegs(self.IP, self.PORT)
+        
+    def __del__ ( self ):
+        self.RobotEyes.__del__ ()
+        self.RobotLegs.__del__ ()
+        
+    #rotates the robot counter-clockwise for positive radians and clockwise for negative radians
+    def rotate(self, radians):
+        self.RobotLegs.rotate(radians)
+    
     def walk(self, value=0):
-    	self.RobotLegs.walk(value)
+        self.RobotLegs.walk(value)
 
     def stop(self):
-    	self.RobotLegs.stop()
+        self.RobotLegs.stop()
 
     def displayImage(self):
-    	self.RobotEyes.displayImage()
+        self.RobotEyes.displayImage()
 
     def getRedBall(self):
-    	return self.RobotEyes.getRedBall()
+        return self.RobotEyes.getRedBall()
 
     def getYellowGoal(self):
-    	return self.RobotEyes.getYellowGoal()
+        return self.RobotEyes.getYellowGoal()
 
     def getBlueGoal(self):
-    	return self.RobotEyes.getBlueGoal()
+        return self.RobotEyes.getBlueGoal()
 
     def getBluePlayers(self):
         return self.RobotEyes.getBluePlayers()
@@ -55,5 +59,5 @@ class CreateRobot:
     def getAngle(self, string):
         return self.RobotLegs.getAngle(string)
     
-    def rotateSelf(self)
-    	return self.RobotLegs.rotateSelf()
+    def rotateSelf(self):
+        return self.RobotLegs.rotateSelf()
