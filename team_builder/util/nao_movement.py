@@ -10,8 +10,19 @@ class RobotLegs:
 
         self.motionProxy = ALProxy("ALMotion", self.IP, self.PORT)
         self.postureProxy = ALProxy("ALRobotPosture", self.IP, self.PORT)
+        self.memoryProxy = ALProxy("ALMemory", self.IP, self.PORT)
 
         self.motionProxy.stiffnessInterpolation("Body", 1.0, 1.0)
+
+        self.FallTime = time.time()
+
+        self.LFFL = 0.0
+        self.LFFR = 0.0
+        self.LFRL = 0.0
+        self.LFRR = 0.0
+        self.RFFL = 0.0
+        self.RFFR = 0.0
+        self.RFRR = 0.0
 
     def walk(self, value):
         self.motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,
@@ -255,4 +266,64 @@ class RobotLegs:
         self.motionProxy.moveTo(x, y, theta)
 
     def initStance(self):
-        self.postureProxy.goToPosture("StandInit", 0.5)
+        self.postureProxy.post.goToPosture("StandInit", 0.5)
+
+    def hasFallen(self):
+
+        if (time.time()-self.FallTime>3):
+
+
+            self.oldLFFL = self.LFFL
+            self.oldLFFR = self.LFFR
+            self.oldLFRL = self.LFRL
+            self.oldLFRR = self.LFRR
+            self.oldRFFL = self.RFFL
+            self.oldRFFR = self.RFFR
+            self.oldRFRR = self.RFRR
+
+
+            key = "Device/SubDeviceList/LFoot/FSR/FrontLeft/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFFL = round(value, 2)
+
+            key = "Device/SubDeviceList/LFoot/FSR/FrontRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFFR = round(value, 2)
+
+            key = "Device/SubDeviceList/LFoot/FSR/RearLeft/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFRL = round(value, 2)
+
+            key = "Device/SubDeviceList/LFoot/FSR/RearRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFRR = round(value, 2)
+
+
+            key = "Device/SubDeviceList/RFoot/FSR/FrontLeft/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.RFFL = round(value, 2)
+
+            key = "Device/SubDeviceList/RFoot/FSR/FrontRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.RFFR = round(value, 2)
+
+            ##
+            # This call is buggy in webots and always returns 0.0
+            ##
+            # key = "Device/SubDeviceList/RFoot/FSR/RearLeft/Sensor/Value"
+            # value = memory.getData(key)
+            # RFRL = value
+
+            key = "Device/SubDeviceList/RFoot/FSR/RearRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.RFRR = round(value, 2)
+
+            self.FallTime = time.time()
+
+            if (self.oldLFFL == self.LFFL == self.oldLFFR == self.LFFR == self.oldLFRL == self.LFRL == self.oldLFRR == self.LFRR == self.oldRFFL == self.RFFL == self.oldRFFR == self.RFFR == self.oldRFRR == self.RFRR):
+                    return True
+            else:
+                    return False
+
+
+

@@ -87,4 +87,7 @@ class CreateRobot:
 
     def initStance(self):
         self.RobotLegs.initStance()
+
+    def hasFallen(self):
+        return self.RobotLegs.hasFallen()
        

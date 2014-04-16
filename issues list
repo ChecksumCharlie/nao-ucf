@@ -16,3 +16,10 @@ added proper time steps to update cycles
 added second camera
 
 TODO: figure out how to check if cameras are subscribed
+
+done foot sensor testing
+
+Device/SubDeviceList/RFoot/FSR/RearLeft/Sensor/Value
+not working
+
+only one robot can get up at a time

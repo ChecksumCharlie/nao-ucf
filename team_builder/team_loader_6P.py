@@ -12,23 +12,23 @@ from behaviors import teamLadder_goalie
 from behaviors import template_player
 
 # Load robots and their behaviors
-RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559)
-RobotBlueGoalieLogic = template_player.LogicFor(RobotBlueGoalie)
+RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559) 
+RobotBlueGoalieLogic = simple_goalie.LogicFor(RobotBlueGoalie)
 
 RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
-RobotBlueMidfielderLogic = static_player.LogicFor(RobotBlueMidfielder)
+RobotBlueMidfielderLogic = simple_midfielder.LogicFor(RobotBlueMidfielder)
 
 RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
-RobotBlueStrikerLogic = static_player.LogicFor(RobotBlueStriker)
+RobotBlueStrikerLogic = simple_midfielder.LogicFor(RobotBlueStriker)
 
 RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
-RobotPinkGoalieLogic = static_player.LogicFor(RobotPinkGoalie) 
+RobotPinkGoalieLogic = simple_goalie.LogicFor(RobotPinkGoalie) 
 
 RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
-RobotPinkMidfielderLogic = static_player.LogicFor(RobotPinkMidfielder)
+RobotPinkMidfielderLogic = simple_midfielder.LogicFor(RobotPinkMidfielder)
 
 RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
-RobotPinkStrikerLogic = static_player.LogicFor(RobotPinkStriker)  
+RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)  
 
 print "All Robots and Logic loaded!"
 
@@ -58,5 +58,7 @@ while (True):
     p.start()
     p.join()
  
+
+
 # Safe Exit for Webots' sake
 sys.exit(0)
