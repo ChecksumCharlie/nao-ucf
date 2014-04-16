@@ -14,6 +14,8 @@ class CreateRobot:
     	self.RobotLegs = movement.RobotLegs(self.IP, self.PORT)
 
         self.motionProxy = self.RobotLegs.motionProxy
+        self.postureProxy = self.RobotLegs.postureProxy
+        self.memoryProxy = self.RobotLegs.memoryProxy
 
 
     def walk(self, value=0):
