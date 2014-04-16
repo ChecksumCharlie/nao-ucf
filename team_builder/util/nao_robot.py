@@ -67,11 +67,11 @@ class CreateRobot:
     def simple90right(self):
         self.RobotLegs.simple90right()
 
-    def getYellowGoalWidth(self):
-        return self.RobotEyes.getYellowGoalWidth()
+    def getYellowGoalHeight(self):
+        return self.RobotEyes.getYellowGoalHeight()
 
-    def getBlueGoalWidth(self):
-        return self.RobotEyes.getBlueGoalWidth()
+    def getBlueGoalHeight(self):
+        return self.RobotEyes.getBlueGoalHeight()
 
     def getRedBall2(self):
         return self.RobotEyes.getRedBall2()

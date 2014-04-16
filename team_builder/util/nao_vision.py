@@ -118,7 +118,7 @@ class RobotEyes:
 
         return img
 
-    def getMomentsGivenColorThresh(self, img, lower, upper):
+    def getCoordsGivenThresh(self, img, lower, upper):
          # Threshold the HSV image to get only blue color areas
         img = cv2.inRange(img, lower, upper)
 
@@ -144,7 +144,7 @@ class RobotEyes:
 
         return coords
 
-    def getWidthGivenColorThresh(self, img, lower, upper):
+    def getSingleCoordGivenThresh(self, img, lower, upper):
          # Threshold the HSV image to get only blue color areas
         img = cv2.inRange(img, lower, upper)
 
@@ -152,15 +152,53 @@ class RobotEyes:
         ret,thresh = cv2.threshold(img,127,255,0)
         contours,hierarchy = cv2.findContours(thresh, 1, 2)
 
-        widths = []
+        # starting values for an all encompassing bounding rectangle diagonal point pair
+        # anything detected on screen will be a smaller/higher value respectively (min/max)
+        x_min = 640
+        y_min = 480
+        x_max = 0
+        y_max = 0
+
+        for c in contours:
+
+            # get the bounding rectangle for each individual shape detected
+            x,y, w, h = cv2.boundingRect(c)
+    
+            # keep the min and max values of each
+            if (x<=x_min): x_min = x
+            if (y<=y_min): y_min = y
+            if (x+w>=x_max): x_max = x+w
+            if (y+h>=y_max): y_max = y+h
+           
+        # after loop, calculate the mid point of the all-bounding rectangle
+        rect_mid_x = (x_max-x_min)/2+x_min
+        rect_mid_y = (y_max-y_min)/2+y_min
+        
+        coords = [rect_mid_x, rect_mid_y]
+
+        # return [] if nothing has been detected meaning starting values are the same
+        if (x_min == 640 and y_min == 480 and x_max == 0 and y_max == 0):
+            coords = []
+
+        return coords
+
+    def getHeightGivenColorThresh(self, img, lower, upper):
+         # Threshold the HSV image to get only blue color areas
+        img = cv2.inRange(img, lower, upper)
+
+        # Finding contours in the grayscale image
+        ret,thresh = cv2.threshold(img,127,255,0)
+        contours,hierarchy = cv2.findContours(thresh, 1, 2)
+
+        heights = []
 
         for c in contours:
 
             x,y, w, h = cv2.boundingRect(c)
 
-            widths += w
+            heights += h
 
-        return widths
+        return heights
 
     def getRedBall(self):
         # Red Ball
@@ -169,7 +207,7 @@ class RobotEyes:
 
         img = self.getImageHSV()
         
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getCoordsGivenThresh(img, lower, upper)
 
     def getBlueGoal(self):
         # Blue Goal
@@ -178,7 +216,7 @@ class RobotEyes:
 
         img = self.getImageHSV()
 
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getSingleCoordGivenThresh(img, lower, upper)
 
     def getYellowGoal(self):
         # Yellow Goal
@@ -187,7 +225,7 @@ class RobotEyes:
 
         img = self.getImageHSV()
         
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getSingleCoordGivenThresh(img, lower, upper)
 
     def getBluePlayers(self):
         # Blue Belt
@@ -196,7 +234,7 @@ class RobotEyes:
 
         img = self.getImageHSV()
 
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getCoordsGivenThresh(img, lower, upper)
 
     def getPinkPlayers(self):
         # Pink Belt
@@ -205,7 +243,7 @@ class RobotEyes:
 
         img = self.getImageHSV()
         
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getCoordsGivenThresh(img, lower, upper)
 
 
     def getRedBall2(self):
@@ -215,7 +253,7 @@ class RobotEyes:
 
         img = self.getImage2HSV()
 
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getCoordsGivenThresh(img, lower, upper)
 
     def getBlueGoal2(self):
         # Blue Goal
@@ -224,7 +262,7 @@ class RobotEyes:
 
         img = self.getImage2HSV()
 
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getSingleCoordGivenThresh(img, lower, upper)
 
     def getYellowGoal2(self):
         # Yellow Goal
@@ -233,7 +271,7 @@ class RobotEyes:
 
         img = self.getImage2HSV()
         
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getSingleCoordGivenThresh(img, lower, upper)
 
     def getBluePlayers2(self):
         # Blue Belt
@@ -242,7 +280,7 @@ class RobotEyes:
 
         img = self.getImage2HSV()
 
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getCoordsGivenThresh(img, lower, upper)
 
     def getPinkPlayers2(self):
         # Pink Belt
@@ -251,9 +289,9 @@ class RobotEyes:
 
         img = self.getImage2HSV()
         
-        return self.getMomentsGivenColorThresh(img, lower, upper)
+        return self.getCoordsGivenThresh(img, lower, upper)
 
-    def getYellowGoalWidth(self):
+    def getYellowGoalHeight(self):
 
         # Yellow Goal
         lower = np.array([85,100,100])
@@ -261,16 +299,16 @@ class RobotEyes:
 
         img = self.getImage2HSV()
         
-        return self.getWidthGivenColorThresh(img, lower, upper)
+        return self.getHeightGivenColorThresh(img, lower, upper)
 
-    def getBlueGoalWidth(self):
+    def getBlueGoalHeight(self):
         # Blue Goal
         lower = np.array([10,50,50])
         upper = np.array([20,255,255])
 
         img = self.getImageHSV()
 
-        return self.getWidthGivenColorThresh(img, lower, upper)
+        return self.getHeightGivenColorThresh(img, lower, upper)
        
 
         

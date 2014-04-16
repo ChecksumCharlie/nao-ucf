@@ -19,17 +19,22 @@ bottomCam = 1
 topCam = 0
 
 
+# Unsubsribe from Camera Proxy
+# camProxy.unsubscribe("python_client")
 
 # Subscribe to Camera Proxy
-videoClient2 = camProxy.subscribeCamera("python_client", topCam, resolution, colorSpace, 5)
-videoClient = camProxy.subscribeCamera("python_client", bottomCam, resolution, colorSpace, 5)
+videoClient = camProxy.subscribeCamera("python_client", topCam, resolution, colorSpace, 5)
+# videoClient2 = camProxy.subscribeCamera("python_client", bottomCam, resolution, colorSpace, 5)
 
 # Get a camera image.
 # image[6] contains the image data passed as an array of ASCII chars.
 naoImage = camProxy.getImageRemote(videoClient)
 
+
 # Unsubsribe from Camera Proxy
-camProxy.unsubscribe(videoClient)
+# camProxy.unsubscribe(videoClient)
+
+
 
 # Get the image size and pixel array.
 imageWidth = naoImage[0]
@@ -41,6 +46,7 @@ im = Image.fromstring("RGB", (imageWidth, imageHeight), array)
 
 # Create a BGR Numpy pixel array from  camera image
 img = np.array(im)
+img2 = img
 
 # Convert BGR to HSV
 img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -53,8 +59,8 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 # upper = np.array([10,255,255])
 
 # # Blue Goal
-# lower = np.array([10,50,50])
-# upper = np.array([20,255,255])
+lower = np.array([10,50,50])
+upper = np.array([20,255,255])
 
 # # Pink Belt
 # lower = np.array([110,50,50])
@@ -65,15 +71,20 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 # upper = np.array([105,255,255])
 
 # # Red Ball
-lower = np.array([110,150,150])
-upper = np.array([130,255,255])
+# lower = np.array([110,150,150])
+# upper = np.array([130,255,255])
 
 # Threshold the HSV image to get only blue color areas
 img = cv2.inRange(img, lower, upper)
-img2 = img
+
 # Finding contours in the grayscale image
 ret,thresh = cv2.threshold(img,127,255,0)
 contours,hierarchy = cv2.findContours(thresh, 1, 2)
+
+x_min = 640
+y_min = 480
+x_max = 0
+y_max = 0
 
 for c in contours:
 
@@ -81,6 +92,12 @@ for c in contours:
     M = cv2.moments(c)
 
     x,y, w, h = cv2.boundingRect(c)
+    
+    if (x<=x_min): x_min = x
+    if (y<=y_min): y_min = y
+    if (x+w>=x_max): x_max = x+w
+    if (y+h>=y_max): y_max = y+h
+
     
     # print h
 
@@ -94,7 +111,9 @@ for c in contours:
     print cx
     print cy
  
-cv2.imshow('image',img)
+cv2.rectangle(img2,(x_min,y_min),(x_max,y_max),(0,255,0),2)
+
+cv2.imshow('image',img2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
