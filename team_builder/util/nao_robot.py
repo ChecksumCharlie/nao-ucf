@@ -13,6 +13,9 @@ class CreateRobot:
     	self.RobotEyes = vision.RobotEyes(self.IP, self.PORT)
     	self.RobotLegs = movement.RobotLegs(self.IP, self.PORT)
 
+        self.motionProxy = self.RobotLegs.motionProxy
+
+
     def walk(self, value=0):
     	self.RobotLegs.walk(value)
 
@@ -65,25 +68,25 @@ class CreateRobot:
         self.RobotLegs.simple90right()
 
     def getYellowGoalWidth(self):
-        self.RobotEyes.getYellowGoalWidth()
+        return self.RobotEyes.getYellowGoalWidth()
 
     def getBlueGoalWidth(self):
-        self.RobotEyes.getBlueGoalWidth()
+        return self.RobotEyes.getBlueGoalWidth()
 
     def getRedBall2(self):
-        self.RobotEyes.getRedBall2()
+        return self.RobotEyes.getRedBall2()
         
     def getBlueGoal2(self):
-       self.RobotEyes.getBlueGoal2()
+        return self.RobotEyes.getBlueGoal2()
 
     def getYellowGoal2(self):
-        self.RobotEyes.getYellowGoal2()
+        return self.RobotEyes.getYellowGoal2()
         
     def getBluePlayers2(self):
-        self.RobotEyes.getBluePlayers2()
+        return self.RobotEyes.getBluePlayers2()
         
     def getPinkPlayers2(self):
-        self.RobotEyes.getPinkPlayers2()
+        return self.RobotEyes.getPinkPlayers2()
 
     def initStance(self):
         self.RobotLegs.initStance()

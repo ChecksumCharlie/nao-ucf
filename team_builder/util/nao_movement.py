@@ -24,6 +24,9 @@ class RobotLegs:
         self.RFFR = 0.0
         self.RFRR = 0.0
 
+    def motionProxy(self):
+        return self.motionProxy
+
     def walk(self, value):
         self.motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,
                 [#LEFT

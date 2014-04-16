@@ -214,7 +214,7 @@ class RobotEyes:
         upper = np.array([130,255,255])
 
         img = self.getImage2HSV()
-        
+
         return self.getMomentsGivenColorThresh(img, lower, upper)
 
     def getBlueGoal2(self):
