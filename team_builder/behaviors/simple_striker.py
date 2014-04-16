@@ -1,6 +1,8 @@
 from __future__ import division
-import time
+
 import math
+import time
+
 
 class LogicFor:
     def __init__(self, RobotGiven):

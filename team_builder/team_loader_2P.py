@@ -1,11 +1,10 @@
+from multiprocessing import Process
 import sys
 import time
-from multiprocessing import Process
 
+from behaviors import simple_goalie, simple_midfielder, simple_striker
 from util import nao_robot as robot
-from behaviors import simple_midfielder
-from behaviors import simple_goalie
-from behaviors import simple_striker
+
 
 # Robot ip address and port
 IP = "127.0.0.1"

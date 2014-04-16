@@ -22,8 +22,6 @@ class RobotEyes:
     def __del__(self):
         # Unsubsribe from Camera Proxy
         self.camProxy.unsubscribe(self.videoClient)
-        if ( self.camProxy.isRunning() ):
-            self.camProxy.stop()
 
     def displayImage(self):
         # Get a camera image.

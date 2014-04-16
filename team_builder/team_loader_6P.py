@@ -1,12 +1,11 @@
-import sys
 from multiprocessing import Process
+import sys
+
+from behaviors import simple_goalie, simple_midfielder, simple_offender
 from util import nao_robot as robot
 
-# Import robot behaviors
-from behaviors import simple_midfielder
-from behaviors import simple_goalie
-from behaviors import simple_offender
 
+# Import robot behaviors
 # Load robots and their behaviors
 RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559)
 RobotBlueGoalieLogic = simple_goalie.LogicFor(RobotBlueGoalie)
@@ -44,13 +43,6 @@ pm.start()
 
 ps = Process(target=RobotPinkStrikerLogic.update())
 ps.start()
-
-bg.terminate()
-bm.terminate()
-bs.terminate()
-pg.terminate()
-pm.terminate()
-ps.terminate()
 
 bg.join()
 bm.join()

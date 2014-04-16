@@ -1,14 +1,16 @@
-import sys
-import time
-from multiprocessing import Process
+from util import parameters
 
-from util import nao_robot as robot
 
 class LogicFor:
     def __init__(self, RobotGiven):
         self.player = RobotGiven
 
     def update(self):
+        
+        parameters.wrapFSM(self)
+
+
+    def runFSM(self): 
             # new value
             RedBall = self.player.getRedBall()
             # behavior logic

@@ -1,25 +1,36 @@
-import motion
-from naoqi import ALProxy
 import math
 import time
+
+import motion
+from naoqi import ALProxy
+
 
 class RobotLegs:
     def __init__(self, IP, PORT):
         self.IP = IP
         self.PORT = PORT
 
-        self.motionProxy = ALProxy( "ALMotion", self.IP, self.PORT )
-        self.motionProxy.stiffnessInterpolation( "Body", 1.0, 1.0 )
-        self.postureProxy = ALProxy( "AlRobotPosture", self.IP, self.PORT )
-    
-    def __del__(self):
-        if ( self.motionProxy.isRunning() ):
-            self.motionProxy.stop()
-        if ( self.postureProxy.isRunning() ):
-            self.postureProxy.stop()
-    
+        self.motionProxy = ALProxy("ALMotion", self.IP, self.PORT)
+        self.postureProxy = ALProxy("ALRobotPosture", self.IP, self.PORT)
+        self.memoryProxy = ALProxy("ALMemory", self.IP, self.PORT)
+
+        self.motionProxy.stiffnessInterpolation("Body", 1.0, 1.0)
+
+        self.FallTime = time.time()
+
+        self.LFFL = 0.0
+        self.LFFR = 0.0
+        self.LFRL = 0.0
+        self.LFRR = 0.0
+        self.RFFL = 0.0
+        self.RFFR = 0.0
+        self.RFRR = 0.0
+
+    def motionProxy(self):
+        return self.motionProxy
+
     def walk(self, value):
-        self.motionProxy.setWalkTargetVelocity(0.50,0.0,value,1.0,
+        self.motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,
                 [#LEFT
                 ["MaxStepX", 0.07],
                 #maxStepYRight,
@@ -77,7 +88,7 @@ class RobotLegs:
 
     def killWalk(self):
         self.motionProxy.stopWalk()
-    
+
     def leftKick(self, prime, execute, cool_down):
 
         # Activate Whole Body Balancer
@@ -225,13 +236,99 @@ class RobotLegs:
         isEnabled    = False
         self.motionProxy.wbEnable(isEnabled)
 
-    def tiltHead(self, pitch):
-        self.motionProxy.setStiffnesses("Head", 1.0)
-        self.motionProxy.angleInterpolation("HeadPitch", pitch, 2.0, True)
-
     def getAngle(self, string):
         return self.motionProxy.getAngles(string, False)
-        
-    #rotates the robot counter-clockwise for positive radians and clockwise for negative radians
-    def rotate(self, radians):
-        self.motionProxy.moveTo(0, 0, radians)
+
+    def setHeadAngle(self, angle, string):
+        self.motionProxy.setStiffnesses("Head", 1.0)
+        angs = [math.radians(angle)]
+        self.motionProxy.angleInterpolation(string, angs, 1, True)
+
+    def simple180(self):        
+
+        x  = 0
+        y  = 0
+        # pi anti-clockwise (180 degrees)
+        theta = 3.1418
+
+        self.motionProxy.moveTo(x, y, theta)
+
+
+    def simple90left(self):
+        x  = 0
+        y  = 0
+        # pi anti-clockwise (180 degrees)
+        theta = 1.5709 
+
+        self.motionProxy.moveTo(x, y, theta)
+
+    def simple90right(self):
+        x  = 0
+        y  = 0
+        # pi anti-clockwise (180 degrees)
+        theta = -1.5709 
+
+        self.motionProxy.moveTo(x, y, theta)
+
+    def initStance(self):
+        self.postureProxy.post.goToPosture("StandInit", 0.5)
+
+    def hasFallen(self):
+
+        if (time.time()-self.FallTime>3):
+
+
+            self.oldLFFL = self.LFFL
+            self.oldLFFR = self.LFFR
+            self.oldLFRL = self.LFRL
+            self.oldLFRR = self.LFRR
+            self.oldRFFL = self.RFFL
+            self.oldRFFR = self.RFFR
+            self.oldRFRR = self.RFRR
+
+
+            key = "Device/SubDeviceList/LFoot/FSR/FrontLeft/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFFL = round(value, 2)
+
+            key = "Device/SubDeviceList/LFoot/FSR/FrontRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFFR = round(value, 2)
+
+            key = "Device/SubDeviceList/LFoot/FSR/RearLeft/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFRL = round(value, 2)
+
+            key = "Device/SubDeviceList/LFoot/FSR/RearRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.LFRR = round(value, 2)
+
+
+            key = "Device/SubDeviceList/RFoot/FSR/FrontLeft/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.RFFL = round(value, 2)
+
+            key = "Device/SubDeviceList/RFoot/FSR/FrontRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.RFFR = round(value, 2)
+
+            ##
+            # This call is buggy in webots and always returns 0.0
+            ##
+            # key = "Device/SubDeviceList/RFoot/FSR/RearLeft/Sensor/Value"
+            # value = memory.getData(key)
+            # RFRL = value
+
+            key = "Device/SubDeviceList/RFoot/FSR/RearRight/Sensor/Value"
+            value = self.memoryProxy.getData(key)
+            self.RFRR = round(value, 2)
+
+            self.FallTime = time.time()
+
+            if (self.oldLFFL == self.LFFL == self.oldLFFR == self.LFFR == self.oldLFRL == self.LFRL == self.oldLFRR == self.LFRR == self.oldRFFL == self.RFFL == self.oldRFFR == self.RFFR == self.oldRFRR == self.RFRR):
+                    return True
+            else:
+                    return False
+
+
+

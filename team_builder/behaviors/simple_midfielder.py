@@ -1,20 +1,23 @@
-import sys
-import time
-from multiprocessing import Process
+from util import parameters
 
-from util import nao_robot as robot
 
 class LogicFor:
     def __init__(self, RobotGiven):
         self.player = RobotGiven
 
     def update(self):
+        
+        parameters.wrapFSM(self)
+
+
+    def runFSM(self): 
             # new value
             RedBall = self.player.getRedBall()
             # behavior logic
+            if (self.player.hasFallen()):
+                self.player.initStance()
             
-            
-            if (len(RedBall)>0):
+            elif (len(RedBall)>0):
                 if (RedBall[0]<300):
                     self.player.walk(0.1)
                 elif (RedBall[0]>400):

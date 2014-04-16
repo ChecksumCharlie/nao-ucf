@@ -1,6 +1,7 @@
 from __future__ import division
-import time
+
 import math
+import time
 
 debug = 0
 degrees_full_screen_sweep = 60 #approx.
@@ -47,12 +48,12 @@ class LogicFor:
             else:
                 self.walkSquareAroundBall( bufferDist )
                 Goal = self.player.getYellowGoal()
-        
+        '''
         # move back until both goal posts are visible
         while ( len(Goal) < 4 ):
             # TODO move back
             Goal = self.player.getYellowGoal()
-        
+        '''
         # at this pt, robot sees ball and goal
         RedBall = self.player.getRedBall()
         Goal = self.player.getYellowGoal()
@@ -61,11 +62,23 @@ class LogicFor:
         RedBall = self.player.getRedBall()
         self.goToBall( bufferDist, RedBall )
         
-        #TODO line up feet for kicking
-        #TODO kick
+        # TODO line up feet for kicking
+        # TODO kick
         
-        #TODO Evaluate and Take on Role
-        
+        # TODO Evaluate and Take on Role
+    
+    # returns true red ball is above or below current field of vision
+    # ~assumes head pitch stays at value where red ball was found
+    # if red ball not found at all it returns to the original head pitch and returns false
+    def vertical_RedBall_scan ( self ):
+        # some stuff
+        None
+    
+    # looks up for goal... returns true if goal is found
+    def vertical_Goal_scan ( self ):
+        #some stuff
+        None
+    
     def walkAroundBall ( self, dx, dy, bufferDist, maxAngle ):
         #do stuff
         None
@@ -73,18 +86,6 @@ class LogicFor:
     # walks around the ball in a square until ball and goal are both in sight (ie in the same horizontal range)
     def walkSquareAroundBall ( self, bufferDist ):
         #do stuff
-        None
-    
-    # returns true red ball is above or below current field of vision
-    # ~assumes head pitch stays at value where red ball was found
-    # if red ball not found at all it returns to the original head pitch and returns false
-    def vertical_RedBall_scan (self):
-        # some stuff
-        None
-    
-    # looks up for goal... returns true if goal is found
-    def vertical_Goal_scan (self):
-        #some stuff
         None
     
     def in_sight( self, obj ):
