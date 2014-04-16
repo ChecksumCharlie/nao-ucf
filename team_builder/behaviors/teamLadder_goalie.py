@@ -19,7 +19,7 @@ class LogicFor:
             RedBall = self.player.getRedBall()
             # behavior logic
             if (RedBall == None):
-                time.sleep(1)
+                pass
             elif (len(RedBall)>1):
                     # print RedBall[0]
                     if (RedBall[0]<300):
@@ -33,7 +33,7 @@ class LogicFor:
             else:
                 RedBall = self.player.getRedBall2()
                 if (RedBall == None):
-                    time.sleep(1)
+                    pass
                 elif (len(RedBall)>1):
                     if (RedBall[0]<300):
                         self.player.sidestep(0.2)
