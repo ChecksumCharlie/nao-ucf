@@ -5,7 +5,7 @@ from multiprocessing import Process
 from util import nao_robot as robot
 from behaviors import simple_midfielder
 from behaviors import simple_goalie
-from behaviors import simple_striker
+from behaviors import teamAdequate_player
 from behaviors import template_player
 
 # Robot ip address and port
@@ -13,7 +13,7 @@ IP = "127.0.0.1"
 PORT = 9560
 
 RobotBlue = robot.CreateRobot(IP, PORT)
-RobotBlueLogic = template_player.LogicFor(RobotBlue)
+RobotBlueLogic = teamAdequate_player.LogicFor(RobotBlue)
 
 
 IP = "127.0.0.1"

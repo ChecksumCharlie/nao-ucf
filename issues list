@@ -3,13 +3,13 @@ also forgot () on getOrangeBall() call
 
 parallel processing -> get while loop out of logic
 
-TODO: utilize both cameras
+(X) TODO: utilize both cameras
 
 TODO: turning on spot
 
 TODO: other player avoidance
 
-TODO: fix ball and yellow goal issues
+(X) TODO: fix ball and yellow goal issues
 
 added proper time steps to update cycles
 
@@ -20,8 +20,8 @@ TODO: figure out how to check if cameras are subscribed
 done foot sensor testing
 
 Device/SubDeviceList/RFoot/FSR/RearLeft/Sensor/Value
-not working
+not working -> probably bug
 
-only one robot can get up at a time
+only one robot can get up at a time -> blocking call, needed post
 
 get goal giving more than 1 point

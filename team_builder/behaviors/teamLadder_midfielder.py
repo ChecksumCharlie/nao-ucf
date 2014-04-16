@@ -49,4 +49,4 @@ class LogicFor:
                 else:
                     print "not vis at all"
                     ### .moveStop() does not halt .move(x, y, z)
-                    self.player.motionProxy.move(0, 0, 0)
+                    self.player.motionProxy.move(0, 0, 0.2)
