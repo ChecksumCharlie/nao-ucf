@@ -36,38 +36,60 @@ class LogicFor:
         print "Goal: ", Goal
         # behavior logic
 
+
         if (self.player.hasFallen()):
             self.player.initStance()
 
         if (RedBall == [] and Goal != [] and RedBall_lower != []):
             print "Positioning"
             
-            if(self.freePath(Enemy)):#path blocked
-                print "Path Blocked."
-            else:#free path
-                print "Free Path."
-                if (len(RedBall_lower)>1):
+            if (Goal[0] < 305):#shift and roate right
+                self.player.walk2(0.0, 0.1, 0.2)
+            elif (Goal[0] > 335):#Shift and rotate left
+                self.player.walk2(0.0, -0.1, -0.2)
+            else:
+                pass
+
+            if (Goal[0] >= 310 and Goal[0] <= 330):  
+                if(self.freePath(Enemy)):#path blocked
+                    print "Path Blocked."
+                    self.player.stop()
                     if (RedBall_lower[0]<300):
                         self.player.sidestep(0.2)
-                    elif (RedBall_lower[0]>370):
+                    elif (RedBall_lower[0]>340):
                         self.player.sidestep(-0.2)
                     else:
+                        self.player.stop()
+
+                else:#free path
+                    print "Free Path."
+                    if (len(RedBall_lower)>1):
                         while(True):
                             RedBall_lower = self.player.getRedBall2()
                             print "In position Loop"
                             if(RedBall_lower[1] >=470 or RedBall_lower == []):
-                                self.player.stop()
+                                if(RedBall_lower[0] > 310):
+                                    self.player.sidestep(0.2)
+                                    time.sleep(1)
+                                self.player.killWalk()
                                 break
-                            self.player.walk2(0.0)
+                            if (RedBall_lower[0] == 320):
+                                theta = 0.0
+                            elif (RedBall_lower[0] < 320):
+                                theta = math.atan((475 - RedBall_lower[1])/(320 - RedBall_lower[0])) - math.radians(90)
+                            else:
+                                theta = math.fabs(math.atan((475 - RedBall_lower[1])/(RedBall_lower[0] - 320))  - math.radians(90))
+                            self.player.walk2(0.35, 0.0, 0.2*-theta)
                             time.sleep(0.1)
                         print "KICKING"
-                        self.player.leftKick(1.0,1.3,2.3)
+
+                        self.player.leftKick(1.0,1.1,2.3)
                         time.sleep(1.0)            
-                else: 
-                    self.player.stop()
+                    else: 
+                        self.player.stop()
         elif (RedBall == [] and RedBall_lower == [] ):#ball not in view
             print "Trying to find ball."
-            self.player.walk(0.5)
+            self.player.walk2(0.0, .75, .75)
         else:#locate ball
             print "Ball found, approaching."
             if (RedBall != []):
@@ -84,8 +106,9 @@ class LogicFor:
                     theta = 1.0
                 print "Theta: ", -theta*0.2
 
-                self.player.walk(-theta*0.2)
+                self.player.walk2(.75, 0.0,-theta*0.2)
 
+        time.sleep(.3)  
 
 
 # self.player.walk(-theta*0.2)

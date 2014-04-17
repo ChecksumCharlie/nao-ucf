@@ -21,6 +21,9 @@ class CreateRobot:
     def walk(self, value=0):
     	self.RobotLegs.walk(value)
 
+    def walk2(self, x, y, theta):
+        self.RobotLegs.walk2(x, y, theta)
+
     def stop(self):
     	self.RobotLegs.stop()
 

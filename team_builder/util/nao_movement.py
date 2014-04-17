@@ -46,6 +46,26 @@ class RobotLegs:
                 ["TorsoWx", 0.0], 
                 ["TorsoWy", 0.0]])
 
+    def walk2(self, x, y, theta):
+        self.motionProxy.setWalkTargetVelocity(x,y,theta,1.0,
+                [#LEFT
+                ["MaxStepX", 0.07],
+                #maxStepYRight,
+                ["MaxStepTheta", 0.349],
+                ["MaxStepFrequency", 1],
+                ["StepHeight", 0.015],
+                ["TorsoWx", 0.0],
+                ["TorsoWy", 0.0]],
+                [#RIGHT
+                ["MaxStepX", 0.7],
+                #maxStepYLeft,
+                ["MaxStepTheta", 0.349],
+                ["MaxStepFrequency", 1],
+                ["StepHeight", 0.015],
+                ["TorsoWx", 0.0], 
+                ["TorsoWy", 0.0]])
+
+
     def stop(self):
         self.motionProxy.setWalkTargetVelocity(0.0,0.0,0,0.0,
                 [#LEFT
