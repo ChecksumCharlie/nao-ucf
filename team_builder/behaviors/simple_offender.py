@@ -12,7 +12,7 @@ class LogicFor:
     
     
     def update(self):
-        self.RobotLegs.postureProxy.goToPosture( "StandInit", 0.5 )
+        self.player.RobotLegs.postureProxy.goToPosture( "StandInit", 0.5 )
     
         # get values
         RedBall = self.player.getRedBall()
@@ -33,7 +33,7 @@ class LogicFor:
         # at this pt, robot sees the ball
         RedBall = self.player.getRedBall()
         bufferDist = 0.8 #TODO figure out the 'perfect' bufferDist
-        self.goToBall( bufferDist , RedBall) 
+        self.goToBall( bufferDist ) 
         
         # find goal
         Goal = self.player.getYellowGoal()   # opponent's goal

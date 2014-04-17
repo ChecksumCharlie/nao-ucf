@@ -4,7 +4,6 @@ import sys
 from behaviors import simple_goalie, simple_midfielder, simple_offender
 from util import nao_robot as robot
 
-
 # Import robot behaviors
 # Load robots and their behaviors
 RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559)
@@ -26,37 +25,36 @@ RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
 RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)  
 
 # Run robot FSMs concurrently
-bg = Process(target=RobotBlueGoalieLogic.update())
-bg.start()
+b = Process(target=RobotBlueGoalieLogic.update())
+b.start()
+b.join()
 
-bm = Process(target=RobotBlueMidfielderLogic.update())
-bm.start()
+b = Process(target=RobotBlueMidfielderLogic.update())
+b.start()
+b.join()
 
-bs = Process(target=RobotBlueStrikerLogic.update())
-bs.start()
+b = Process(target=RobotBlueStrikerLogic.update())
+b.start()
+b.join()
 
-pg = Process(target=RobotPinkGoalieLogic.update())
-pg.start()
+b = Process(target=RobotPinkGoalieLogic.update())
+b.start()
+b.join()
 
-pm = Process(target=RobotPinkMidfielderLogic.update())
-pm.start()
+b = Process(target=RobotPinkMidfielderLogic.update())
+b.start()
+b.join()
 
-ps = Process(target=RobotPinkStrikerLogic.update())
-ps.start()
+b = Process(target=RobotPinkStrikerLogic.update())
+b.start()
+b.join()
 
-bg.join()
-bm.join()
-bs.join()
-pg.join()
-pm.join()
-ps.join()
-
-RobotPinkGoalie.__del__ ()
-RobotPinkMidfielder.__del__ ()
-RobotPinkStriker.__del__ ()
-RobotBlueGoalie.__del__ ()
-RobotBlueMidfielder.__del__ ()
-RobotBlueStriker.__del__ ()
+#bg.join()
+#bm.join()
+#bs.join()
+#pg.join()
+#pm.join()
+#ps.join()
 
 # Safe Exit for Webots' sake
 sys.exit(0)

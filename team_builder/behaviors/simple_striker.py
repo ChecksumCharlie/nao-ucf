@@ -9,6 +9,7 @@ class LogicFor:
         self.player = RobotGiven
 
     def update(self):
+            self.player.RobotLegs.postureProxy.goToPosture("StandInit", 0.5)
             # new value
             RedBall = self.player.getRedBall()
             Enemy = self.player.getPinkPlayers()

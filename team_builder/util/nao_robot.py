@@ -11,7 +11,7 @@ class CreateRobot:
         
         self.timeMemory = time.time()
         
-        self.RobotEyes = vision.RobotEyes(self.IP, self.PORT)
+        self.RobotEyes = vision.RobotEyes(IP, PORT)
         self.RobotLegs = movement.RobotLegs(self.IP, self.PORT)
         
         self.motionProxy = self.RobotLegs.motionProxy
