@@ -108,7 +108,7 @@ class LogicFor:
                             self.player.walk2(0.35, 0.0, 0.2*-theta)
                             time.sleep(0.1)
 
-                        if (self.freePath(self.player.getPinkPlayers)):
+                        if (self.freePath(self.player.getPinkPlayers())):
                             print "No shot to kick"
                         else:
                             print "KICKING"
