@@ -11,7 +11,10 @@ class RobotLegs:
         self.motionProxy = ALProxy("ALMotion", self.IP, self.PORT)
         self.postureProxy = ALProxy("ALRobotPosture", self.IP, self.PORT)
         self.memoryProxy = ALProxy("ALMemory", self.IP, self.PORT)
+        # self.sonarProxy = ALProxy("ALSonar", self.IP, self.PORT)
 
+
+        # self.sonarProxy.subscribe("python_client_sonar")
         self.motionProxy.stiffnessInterpolation("Body", 1.0, 1.0)
 
         self.FallTime = time.time()
@@ -24,8 +27,11 @@ class RobotLegs:
         self.RFFR = 0.0
         self.RFRR = 0.0
 
-    def motionProxy(self):
-        return self.motionProxy
+    # def sonarLeftDist(self):
+    #     return self.memoryProxy.getData("Device/SubDeviceList/US/Left/Sensor/Value")
+
+    # def sonarRightDist(self):
+    #     return self.memoryProxy.getData("Device/SubDeviceList/US/Right/Sensor/Value")
 
     def walk(self, value):
         self.motionProxy.setWalkTargetVelocity(1.0,0.0,value,1.0,

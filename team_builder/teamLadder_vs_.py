@@ -13,48 +13,60 @@ from behaviors import teamLadder_midfielder
 RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559) 
 RobotBlueGoalieLogic = teamLadder_goalie.LogicFor(RobotBlueGoalie)
 
-RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
-RobotBlueMidfielderLogic = teamLadder_midfielder.LogicFor(RobotBlueMidfielder)
+x=0
+while (x<30):
 
-RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
-RobotBlueStrikerLogic = static_player.LogicFor(RobotBlueStriker)
+    RobotBlueGoalie.motionProxy.move(3, 0, 0)
+    # leftS = RobotBlueGoalie.sonarLeftDist()
+    # rightS = RobotBlueGoalie.sonarRightDist()
+    # if (leftS < 0.5 or rightS < 0.5):
+    #     RobotBlueGoalie.motionProxy.move(0, 0, 0)
 
-RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
-RobotPinkGoalieLogic = static_player.LogicFor(RobotPinkGoalie) 
+    time.sleep(1)
+    x+=1
 
-RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
-RobotPinkMidfielderLogic = static_player.LogicFor(RobotPinkMidfielder)
+# RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
+# RobotBlueMidfielderLogic = teamLadder_midfielder.LogicFor(RobotBlueMidfielder)
 
-RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
-RobotPinkStrikerLogic = static_player.LogicFor(RobotPinkStriker)  
+# RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
+# RobotBlueStrikerLogic = static_player.LogicFor(RobotBlueStriker)
 
-print "All Robots and Logic loaded!"
+# RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
+# RobotPinkGoalieLogic = static_player.LogicFor(RobotPinkGoalie) 
 
-# Run robot FSMs concurrently
-while (True):
-    p = Process(target=RobotBlueGoalieLogic.update())
-    p.start()
-    p.join()
+# RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
+# RobotPinkMidfielderLogic = static_player.LogicFor(RobotPinkMidfielder)
 
-    p = Process(target=RobotBlueMidfielderLogic.update())
-    p.start()
-    p.join()
+# RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
+# RobotPinkStrikerLogic = static_player.LogicFor(RobotPinkStriker)  
 
-    p = Process(target=RobotBlueStrikerLogic.update())
-    p.start()
-    p.join()
+# print "All Robots and Logic loaded!"
 
-    p = Process(target=RobotPinkGoalieLogic.update())
-    p.start()
-    p.join()
+# # Run robot FSMs concurrently
+# while (True):
+#     p = Process(target=RobotBlueGoalieLogic.update())
+#     p.start()
+#     p.join()
 
-    p = Process(target=RobotPinkMidfielderLogic.update())
-    p.start()
-    p.join()
+#     p = Process(target=RobotBlueMidfielderLogic.update())
+#     p.start()
+#     p.join()
 
-    p = Process(target=RobotPinkStrikerLogic.update())
-    p.start()
-    p.join()
+#     p = Process(target=RobotBlueStrikerLogic.update())
+#     p.start()
+#     p.join()
+
+#     p = Process(target=RobotPinkGoalieLogic.update())
+#     p.start()
+#     p.join()
+
+#     p = Process(target=RobotPinkMidfielderLogic.update())
+#     p.start()
+#     p.join()
+
+#     p = Process(target=RobotPinkStrikerLogic.update())
+#     p.start()
+#     p.join()
  
 
 

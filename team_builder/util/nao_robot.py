@@ -16,6 +16,7 @@ class CreateRobot:
         self.motionProxy = self.RobotLegs.motionProxy
         self.postureProxy = self.RobotLegs.postureProxy
         self.memoryProxy = self.RobotLegs.memoryProxy
+        # self.sonarProxy = self.RobotLegs.sonarProxy
 
 
     def walk(self, value=0):
@@ -98,4 +99,10 @@ class CreateRobot:
 
     def hasFallen(self):
         return self.RobotLegs.hasFallen()
+
+    # def sonarLeftDist(self):
+    #     return self.RobotLegs.sonarLeftDist()
+
+    # def sonarRightDist(self):
+    #     return self.RobotLegs.sonarRightDist()
        
