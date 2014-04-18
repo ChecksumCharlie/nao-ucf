@@ -100,6 +100,12 @@ class CreateRobot:
     def hasFallen(self):
         return self.RobotLegs.hasFallen()
 
+    def getYellowGoalWidth(self):        
+        return self.RobotEyes.getYellowGoalWidth()
+
+    def getBlueGoalWidth(self):
+        return self.RobotEyes.getBlueGoalWidth()
+
     # def sonarLeftDist(self):
     #     return self.RobotLegs.sonarLeftDist()
 

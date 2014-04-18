@@ -25,3 +25,5 @@ not working -> probably bug
 only one robot can get up at a time -> blocking call, needed post
 
 get goal giving more than 1 point
+
+trick to make fallen robot get up after failed kick

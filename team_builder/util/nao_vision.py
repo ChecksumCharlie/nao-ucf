@@ -183,22 +183,80 @@ class RobotEyes:
         return coords
 
     def getHeightGivenColorThresh(self, img, lower, upper):
-         # Threshold the HSV image to get only blue color areas
+           # Threshold the HSV image to get only blue color areas
         img = cv2.inRange(img, lower, upper)
 
         # Finding contours in the grayscale image
         ret,thresh = cv2.threshold(img,127,255,0)
         contours,hierarchy = cv2.findContours(thresh, 1, 2)
 
-        heights = []
+        # starting values for an all encompassing bounding rectangle diagonal point pair
+        # anything detected on screen will be a smaller/higher value respectively (min/max)
+        x_min = 640
+        y_min = 480
+        x_max = 0
+        y_max = 0
 
         for c in contours:
 
+            # get the bounding rectangle for each individual shape detected
             x,y, w, h = cv2.boundingRect(c)
+    
+            # keep the min and max values of each
+            if (x<=x_min): x_min = x
+            if (y<=y_min): y_min = y
+            if (x+w>=x_max): x_max = x+w
+            if (y+h>=y_max): y_max = y+h
+           
+        # after loop, calculate the mid point of the all-bounding rectangle
+        rect_h = (x_max-x_min)/2+x_min
+        
+        
+        height = y_max - y_min
 
-            heights += h
+        # return [] if nothing has been detected meaning starting values are the same
+        if (x_min == 640 and y_min == 480 and x_max == 0 and y_max == 0):
+            height = None
 
-        return heights
+        return height
+
+    def getWidthGivenColorThresh(self, img, lower, upper):
+        # Threshold the HSV image to get only blue color areas
+        img = cv2.inRange(img, lower, upper)
+
+        # Finding contours in the grayscale image
+        ret,thresh = cv2.threshold(img,127,255,0)
+        contours,hierarchy = cv2.findContours(thresh, 1, 2)
+
+        # starting values for an all encompassing bounding rectangle diagonal point pair
+        # anything detected on screen will be a smaller/higher value respectively (min/max)
+        x_min = 640
+        y_min = 480
+        x_max = 0
+        y_max = 0
+
+        for c in contours:
+
+            # get the bounding rectangle for each individual shape detected
+            x,y, w, h = cv2.boundingRect(c)
+    
+            # keep the min and max values of each
+            if (x<=x_min): x_min = x
+            if (y<=y_min): y_min = y
+            if (x+w>=x_max): x_max = x+w
+            if (y+h>=y_max): y_max = y+h
+           
+        # after loop, calculate the mid point of the all-bounding rectangle
+        rect_h = (x_max-x_min)/2+x_min
+        
+        
+        width = x_max - x_min
+
+        # return [] if nothing has been detected meaning starting values are the same
+        if (x_min == 640 and y_min == 480 and x_max == 0 and y_max == 0):
+            width = None
+
+        return width
 
     def getRedBall(self):
         # Red Ball
@@ -297,7 +355,7 @@ class RobotEyes:
         lower = np.array([85,100,100])
         upper = np.array([105,255,255])
 
-        img = self.getImage2HSV()
+        img = self.getImageHSV()
         
         return self.getHeightGivenColorThresh(img, lower, upper)
 
@@ -309,6 +367,25 @@ class RobotEyes:
         img = self.getImageHSV()
 
         return self.getHeightGivenColorThresh(img, lower, upper)
+
+    def getYellowGoalWidth(self):
+
+        # Yellow Goal
+        lower = np.array([85,100,100])
+        upper = np.array([105,255,255])
+
+        img = self.getImageHSV()
+        
+        return self.getWidthGivenColorThresh(img, lower, upper)
+
+    def getBlueGoalWidth(self):
+        # Blue Goal
+        lower = np.array([10,50,50])
+        upper = np.array([20,255,255])
+
+        img = self.getImageHSV()
+
+        return self.getWidthGivenColorThresh(img, lower, upper)
        
 
         

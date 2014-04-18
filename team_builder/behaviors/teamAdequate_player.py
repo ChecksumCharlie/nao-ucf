@@ -30,8 +30,8 @@ class LogicFor:
         # new value
         RedBall = self.player.getRedBall()
         RedBall_lower = self.player.getRedBall2()
-        Enemy = self.player.getPinkPlayers()
-        Goal = self.player.getBlueGoal()
+        Enemy = self.player.getBluePlayers()
+        Goal = self.player.getYellowGoal()
 
         print "Ball: ", RedBall
         print "Ball(lower)", RedBall_lower

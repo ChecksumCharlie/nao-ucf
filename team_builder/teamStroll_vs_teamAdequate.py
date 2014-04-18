@@ -4,30 +4,29 @@ from multiprocessing import Process
 from util import nao_robot as robot
 
 # Import robot behaviors
-from behaviors import static_player
-from behaviors import teamLadder_goalie
-from behaviors import teamLadder_midfielder
+from behaviors import stroll_goalie
+from behaviors import stroll_midfielder
+from behaviors import stroll_striker
 from behaviors import teamAdequate_player
-
 
 # Load robots and their behaviors
 RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559) 
-RobotBlueGoalieLogic = teamLadder_goalie.LogicFor(RobotBlueGoalie)
+RobotBlueGoalieLogic = stroll_goalie.LogicFor(RobotBlueGoalie)
 
 RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
-RobotBlueMidfielderLogic = teamLadder_midfielder.LogicFor(RobotBlueMidfielder)
+RobotBlueMidfielderLogic = stroll_midfielder.LogicFor(RobotBlueMidfielder)
 
 RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
-RobotBlueStrikerLogic = static_player.LogicFor(RobotBlueStriker)
+RobotBlueStrikerLogic = stroll_striker.LogicFor(RobotBlueStriker)
 
 RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
-RobotPinkGoalieLogic = static_player.LogicFor(RobotPinkGoalie) 
+RobotPinkGoalieLogic = teamAdequate_player.LogicFor(RobotPinkGoalie) 
 
 RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
-RobotPinkMidfielderLogic = static_player.LogicFor(RobotPinkMidfielder)
+RobotPinkMidfielderLogic = teamAdequate_player.LogicFor(RobotPinkMidfielder)
 
 RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
-RobotPinkStrikerLogic = static_player.LogicFor(RobotPinkStriker)  
+RobotPinkStrikerLogic = stroll_goalie.LogicFor(RobotPinkStriker)  
 
 print "All Robots and Logic loaded!"
 
