@@ -29,15 +29,10 @@ class LogicFor:
             YellowWidth = self.player.getYellowGoalWidth()
             # behavior logic
 
-            # shows that robots are active to viewers
-            if (self.firstLoop==True):
-                self.player.initStance()
-                self.firstLoop=False
-
             # aid fall detection
             self.player.motionProxy.move(0, 0, 0)
 
-            print RedBall2
+            print Goal
             
             if (self.player.hasFallen()):
                 self.player.initStance()
@@ -73,27 +68,29 @@ class LogicFor:
             # Red ball in bottom camera
             elif (len(RedBall2)>1):
                 print "seeing ball bottom cam"
-                if (RedBall2[1]>440):
+                if (RedBall2[1]>400):
                     if (Goal == []):
-                        self.player.motionProxy.move(0, 0.5, -0.4)
+                        self.player.motionProxy.move(0, 0.5, -0.15)
                     elif(Goal[0]<300):
-                        self.player.motionProxy.move(0, 0.5, -0.4)
+                        self.player.motionProxy.move(0, 0.5, -0.15)
                     elif (Goal[0]>340):
-                        self.player.motionProxy.move(0, 0.5, -0.4)
-                    else:
+                        self.player.motionProxy.move(0, 0.5, -0.15)
+                    elif(Goal[0]<400):
+                        self.player.motionProxy.move(0, 0.2, -0.15)
+                    elif (Goal[0]>240):
+                        self.player.motionProxy.move(0, 0.2, -0.15)
+                    elif (RedBall2[1]>440):
                         print "trying kick"
-                        if (RedBall2[0]<=320):
-                            self.player.killWalk()
-                            self.player.rightKick(1.0, 1.7, 2.5)
-                            self.player.walk2(0.1, 0, 0)
-                        else:
-                            self.player.killWalk()
-                            self.player.leftKick(1.0, 1.7, 2.5)
-                            self.player.walk2(0.1, 0, 0)
+                        self.player.killWalk()
+                        self.player.rightKick(1.0, 2.1, 2.5)
+                        self.player.walk2(0.1, 0, 0)
+                    else:
+                        self.player.motionProxy.move(0.1, 0, 0)
+               
                 # slow speed approach
-                elif (RedBall2[0]<300 and RedBall2[1]>240):
+                elif (RedBall2[0]<300 and RedBall2[1]>260):
                     self.player.walk2(0.1, 0.2, 0.1)
-                elif (RedBall2[0]>340 and RedBall2[1]>240):
+                elif (RedBall2[0]>340 and RedBall2[1]>260):
                     self.player.walk2(0.1, -0.2, -0.1)
                 elif (RedBall2[1]>240):
                     self.player.walk2(0.1, 0, 0)
@@ -108,4 +105,4 @@ class LogicFor:
             else:
                 print "not vis at all"
                 ### .moveStop() does not halt .move(x, y, z)
-                self.player.motionProxy.move(0, 0.5, -0.4)
+                self.player.motionProxy.move(0, 0, -0.4)

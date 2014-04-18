@@ -1,12 +1,12 @@
 import sys
 import time
-from multiprocessing import Process
+from threading import Thread
 from util import nao_robot as robot
 
 # Import robot behaviors
 from behaviors import static_player
 from behaviors import teamLadder_goalie
-from behaviors import teamLadder_midfielder
+from behaviors import teamLadder2_midfielder
 from behaviors import teamAdequate_player
 
 
@@ -15,47 +15,50 @@ RobotBlueGoalie = robot.CreateRobot("127.0.0.1", 9559)
 RobotBlueGoalieLogic = teamLadder_goalie.LogicFor(RobotBlueGoalie)
 
 RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
-RobotBlueMidfielderLogic = teamLadder_midfielder.LogicFor(RobotBlueMidfielder)
+RobotBlueMidfielderLogic = teamLadder2_midfielder.LogicFor(RobotBlueMidfielder)
 
-RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
-RobotBlueStrikerLogic = static_player.LogicFor(RobotBlueStriker)
+# RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
+# RobotBlueStrikerLogic = simple_midfielder.LogicFor(RobotBlueStriker)
 
-RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
-RobotPinkGoalieLogic = static_player.LogicFor(RobotPinkGoalie) 
+# RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
+# RobotPinkGoalieLogic = simple_goalie.LogicFor(RobotPinkGoalie) 
 
-RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
-RobotPinkMidfielderLogic = static_player.LogicFor(RobotPinkMidfielder)
+# RobotPinkMidfielder = robot.CreateRobot("127.0.0.1", 9563)
+# RobotPinkMidfielderLogic = simple_midfielder.LogicFor(RobotPinkMidfielder)
 
-RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
-RobotPinkStrikerLogic = static_player.LogicFor(RobotPinkStriker)  
+# RobotPinkStriker = robot.CreateRobot("127.0.0.1", 9564)
+# RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)  
 
 print "All Robots and Logic loaded!"
 
 # Run robot FSMs concurrently
-while (True):
-    p = Process(target=RobotBlueGoalieLogic.update())
-    p.start()
-    p.join()
 
-    p = Process(target=RobotBlueMidfielderLogic.update())
-    p.start()
-    p.join()
+p1 = Thread(target=RobotBlueGoalieLogic.update)
+p2 = Thread(target=RobotBlueMidfielderLogic.update)
+# p3 = Thread(target=RobotBlueStrikerLogic.update)
 
-    p = Process(target=RobotBlueStrikerLogic.update())
-    p.start()
-    p.join()
+# p4 = Thread(target=RobotPinkGoalieLogic.update)
+# p5 = Thread(target=RobotPinkMidfielderLogic.update)
+# p6 = Thread(target=RobotPinkStrikerLogic.update)
 
-    p = Process(target=RobotPinkGoalieLogic.update())
-    p.start()
-    p.join()
+p1.start()
+p2.start()
+# p3.start()
+# print "Blue Team Go!"
 
-    p = Process(target=RobotPinkMidfielderLogic.update())
-    p.start()
-    p.join()
+# p4.start()
+# p5.start()
+# p6.start()
+print "Pink Team Go!"
 
-    p = Process(target=RobotPinkStrikerLogic.update())
-    p.start()
-    p.join()
+p1.join()
+p2.join()
+# p3.join()
+
+# p4.join()
+# p5.join()
+# p6.join()
+
  
 
 
