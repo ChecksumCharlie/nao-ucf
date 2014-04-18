@@ -5,7 +5,7 @@ def wrapFSM(self):
     # Change timeStep to increase or decrease the duration each state of the Logic FSM lasts
     ###
     # float required
-    timeStep = 1.0
+    timeStep = 1
 
     self.runFSM()
     

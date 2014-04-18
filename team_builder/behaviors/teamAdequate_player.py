@@ -10,9 +10,14 @@ from util import parameters as param
 class LogicFor:
     def __init__(self, RobotGiven):
         self.player = RobotGiven
+        self.isRunning = True
+
+    def __del__(self):
+        self.isRunning = False
 
     def update(self):
-        param.wrapFSM(self)
+        while (self.isRunning):
+            param.wrapFSM(self)
 
     def freePath(self, enemy_coords):
         if (enemy_coords == []):
@@ -83,11 +88,10 @@ class LogicFor:
                                 else:
                                     theta = math.fabs(math.atan((475 - RedBall_lower[1])/(RedBall_lower[0] - 305))  - math.radians(90))
                                 self.player.walk2(0.35, 0.0, 0.2*-theta)
-                                time.sleep(0.1)
+
                         print "KICKING"
 
                         self.player.leftKick(1.0,1.1,2.3)
-                        time.sleep(1.0)
 
 
                 else:#free path
@@ -106,7 +110,7 @@ class LogicFor:
                             else:
                                 theta = math.fabs(math.atan((475 - RedBall_lower[1])/(RedBall_lower[0] - 305))  - math.radians(90))
                             self.player.walk2(0.35, 0.0, 0.2*-theta)
-                            time.sleep(0.1)
+
 
                         if (self.freePath(self.player.getPinkPlayers())):
                             print "No shot to kick"
@@ -114,7 +118,7 @@ class LogicFor:
                             print "KICKING"
 
                             self.player.leftKick(1.0,1.1,2.3)
-                            time.sleep(1.0)            
+
                     else: 
                         self.player.stop()
         elif (RedBall == [] and RedBall_lower == [] ):#ball not in view
@@ -138,7 +142,6 @@ class LogicFor:
 
                 self.player.walk2(.75, 0.0,-theta*0.2)
 
-        time.sleep(.3)  
 
 
 # self.player.walk(-theta*0.2)

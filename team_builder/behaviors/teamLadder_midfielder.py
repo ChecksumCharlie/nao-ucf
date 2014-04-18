@@ -9,10 +9,15 @@ class LogicFor:
     def __init__(self, RobotGiven):
         self.player = RobotGiven
         self.goalCheckTime = time.time()
+        self.isRunning = True
+        self.firstLoop = True
+
+    def __del__(self):
+        self.isRunning = False
 
     def update(self):
-        
-        param.wrapFSM(self)
+        while (self.isRunning):
+            param.wrapFSM(self)
 
     def runFSM(self):  
             # new value
@@ -24,8 +29,12 @@ class LogicFor:
             YellowWidth = self.player.getYellowGoalWidth()
             # behavior logic
 
+            # shows that robots are active to viewers
+            if (self.firstLoop==True):
+                self.player.initStance()
+                self.firstLoop=False
+
             # aid fall detection
-            self.player.motionProxy.move(0.1, 0, 0)
             self.player.motionProxy.move(0, 0, 0)
 
             print RedBall2

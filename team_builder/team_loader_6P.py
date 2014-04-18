@@ -1,6 +1,6 @@
 import sys
 import time
-from multiprocessing import Process
+from threading import Thread
 from util import nao_robot as robot
 
 # Import robot behaviors
@@ -33,32 +33,32 @@ RobotPinkStrikerLogic = simple_midfielder.LogicFor(RobotPinkStriker)
 print "All Robots and Logic loaded!"
 
 # Run robot FSMs concurrently
-while (True):
-    p = Process(target=RobotBlueGoalieLogic.update())
-    p.start()
-    p.join()
 
-    p = Process(target=RobotBlueMidfielderLogic.update())
-    p.start()
-    p.join()
+p1 = Thread(target=RobotBlueGoalieLogic.update)
+p2 = Thread(target=RobotBlueMidfielderLogic.update)
+p3 = Thread(target=RobotBlueStrikerLogic.update)
 
-    p = Process(target=RobotBlueStrikerLogic.update())
-    p.start()
-    p.join()
+p4 = Thread(target=RobotPinkGoalieLogic.update)
+p5 = Thread(target=RobotPinkMidfielderLogic.update)
+p6 = Thread(target=RobotPinkStrikerLogic.update)
 
-    p = Process(target=RobotPinkGoalieLogic.update())
-    p.start()
-    p.join()
+p1.start()
+p2.start()
+p3.start()
+print "Blue Team Go!"
 
-    p = Process(target=RobotPinkMidfielderLogic.update())
-    p.start()
-    p.join()
+p4.start()
+p5.start()
+p6.start()
+print "Pink Team Go!"
 
-    p = Process(target=RobotPinkStrikerLogic.update())
-    p.start()
-    p.join()
- 
+p1.join()
+p2.join()
+p3.join()
 
+p4.join()
+p5.join()
+p6.join()
 
 # Safe Exit for Webots' sake
 sys.exit(0)
