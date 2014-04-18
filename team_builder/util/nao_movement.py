@@ -224,7 +224,7 @@ class RobotLegs:
         dwy     = 5.0*math.pi/180.0    # rotation axis Y (radian)
 
 
-        times   = [1.0, 1.05, 2.5]
+        times   = [prime, execute, cool_down]
         isAbsolute = False
 
         targetList = [
@@ -250,7 +250,7 @@ class RobotLegs:
         supportLeg = "LLeg"
         self.motionProxy.wbFootState(stateName, supportLeg)
 
-        effectorName = "LLeg"
+        effectorName = "RLeg"
         self.motionProxy.positionInterpolation(effectorName, space, targetList,
                                     axisMask, times, isAbsolute)
 
