@@ -10,6 +10,7 @@ from behaviors import stroll_striker
 from behaviors import teamAdequate_player
 from behaviors import simple_goalie
 from behaviors import teamLadder_midfielder
+from behaviors import teamLadder2_midfielder
 from behaviors import static_player
 
 # Load robots and their behaviors
@@ -20,7 +21,7 @@ RobotBlueMidfielder = robot.CreateRobot("127.0.0.1", 9560)
 RobotBlueMidfielderLogic = static_player.LogicFor(RobotBlueMidfielder)
 
 RobotBlueStriker = robot.CreateRobot("127.0.0.1", 9561)
-RobotBlueStrikerLogic = teamLadder_midfielder.LogicFor(RobotBlueStriker)
+RobotBlueStrikerLogic = teamLadder2_midfielder.LogicFor(RobotBlueStriker)
 
 RobotPinkGoalie = robot.CreateRobot("127.0.0.1", 9562)
 RobotPinkGoalieLogic = static_player.LogicFor(RobotPinkGoalie) 

@@ -49,13 +49,14 @@ class LogicFor:
         if (self.player.hasFallen()):
             self.player.initStance()
             self.player.setHeadAngle(0, "HeadPitch")
+            s
 
         if (RedBall_lower == [] and RedBall == []):
             print "Trying to find ball."
 
             goal_position = False
 
-            self.player.walk2(0.0, .75, .75)
+            self.player.walk2(0.0, .75, .5)
         elif (RedBall != []):
             print "Ball in Distance.  Approaching"
 
